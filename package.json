@@ -5,12 +5,14 @@
   "description": "",
   "author": "",
   "license": "MIT",
-  "main": "build/index.js",
+  "main": "build/main.js",
   "scripts": {
-    "start": "webpack-dev-server --config config/webpack.config.app.dev.js --open",
-    "build": "webpack --config config/webpack.config.app.prod.js"
+    "react:start": "webpack-dev-server --config config/webpack.config.app.dev.js --open",
+    "react:build": "webpack --config config/webpack.config.app.prod.js",
+    "electron:start": "electron ."
   },
   "dependencies": {
+    "electron-is-dev": "^1.1.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
@@ -23,7 +25,11 @@
     "@types/react-dom": "^16.9.5",
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
+    "concurrently": "^5.1.0",
+    "cross-env": "^7.0.0",
     "css-loader": "^3.4.2",
+    "electron": "^7.1.11",
+    "electron-builder": "^22.3.2",
     "file-loader": "^5.0.2",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
