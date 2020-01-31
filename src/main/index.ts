@@ -1,22 +1,23 @@
-const { app, BrowserWindow } = require('electron');
+import { app, BrowserWindow } from 'electron';
 var path = require("path");
 var isDev = require("electron-is-dev");
 
-let win;
+let win: any;
 
 const createWindow = () => {
   win = new BrowserWindow({
     width: 1000,
     height: 800,
     webPreferences: {
-      nodeIntegration: true
+      nodeIntegration: true,
+      // webSecurity: false
     }
   });
 
   win.loadURL(
     (isDev)
       ? 'http://localhost:8080/'
-      : "file://" + path.resolve(__dirname, 'index.html')
+      : "file://" + path.resolve(__dirname, 'app', 'index.html')
   );
   win.webContents.openDevTools();
 

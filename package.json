@@ -5,7 +5,7 @@
   "description": "",
   "author": "",
   "license": "MIT",
-  "main": "build/main.js",
+  "main": "build/main.prod.js",
   "build": {
     "extends": null,
     "appId": "app.mapeditor.mapeditor",
@@ -25,6 +25,8 @@
     "react:start": "webpack-dev-server --config config/webpack.config.app.dev.js --open",
     "react:build": "webpack --config config/webpack.config.app.prod.js",
     "electron:start": "electron .",
+    "electron:build": "webpack --config config/webpack.config.main.prod.js",
+    "electron:build-dev": "webpack --config config/webpack.config.main.dev.js",
     "electron:pack": "electron-builder"
   },
   "dependencies": {
