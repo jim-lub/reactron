@@ -1,41 +1,28 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
-  entry: "./src/app/index.js",
-
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: "./src/public/index.html"
-    })
-  ],
+  entry: {
+    main: "./src/app/index.js",
+    // vendor: "./src/app/vendor.js"
+  },
 
   module: {
     rules: [
-
-      { // CSS LOADER
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"]
-      },
-
-      { // SASS LOADER
-        test: /\.s[ac]ss$/,
-        use: ["style-loader", "css-loader", "sass-loader"]
-      },
-
-      { // HTML LOADER
+      /** HTML-LOADER **/
+      {
         test: /\.html$/,
         use: ["html-loader"]
       },
-
-      { // FILE LOADER: IMAGES
+      
+      /** FILE-LOADER: SVG, PNG, JPG, GIF **/
+      {
         test: /\.(svg|png|jpg|gif)$/,
         use: {
           loader: "file-loader",
           options: {
             name: "[name].[hash].[ext]",
-            outputPath: "assets/images",
-            esModule: false, // fix for wrong image src in html file
+            outputPath: "static/images",
+            esModule: false, // temp fix for wrong image src in html file
           }
         }
       }
