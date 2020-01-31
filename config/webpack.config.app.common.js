@@ -2,19 +2,27 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    main: "./src/app/index.js",
+    app: "./src/app/index.tsx",
     // vendor: "./src/app/vendor.js"
+  },
+
+  resolve: {
+    extensions: [".ts", ".tsx", ".js", ".jsx"]
   },
 
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx|ts|tsx)$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["@babel/preset-env", "@babel/preset-react"]
+            presets: [
+              "@babel/preset-env",
+              "@babel/preset-react",
+              "@babel/preset-typescript"
+            ]
           }
         }
       },

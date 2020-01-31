@@ -50,7 +50,7 @@ module.exports = merge(commonConfig, {
           "css-loader"
         ]
       },
-      
+
       /** SASS **/
       {
         test: /\.s[ac]ss$/,
