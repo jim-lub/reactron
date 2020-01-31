@@ -7,6 +7,6 @@ module.exports = merge(commonConfig, {
 
   output: {
     filename: "main.dev.js",
-    path: path.join(__dirname, "..", "build")
+    path: path.join(__dirname, "..", "build", "_debug")
   }
 });

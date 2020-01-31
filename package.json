@@ -15,7 +15,8 @@
     },
     "files": [
       "build/**/*",
-      "node_modules/**/*"
+      "node_modules/**/*",
+       "!build/_debug/**/*"
     ],
     "directories": {
       "buildResources": "resources"
