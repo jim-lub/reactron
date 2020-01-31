@@ -4,7 +4,7 @@
   "private": true,
   "description": "",
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "main": "build/index.js",
   "scripts": {
     "start": "webpack-dev-server --config config/webpack.config.app.dev.js --open",

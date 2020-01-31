@@ -1,14 +1,9 @@
-import { doSomething } from './lib/doSomething';
+import React from 'react';
 
-const doSomethingButton = document.getElementById("doSomething");
-
-export const init = () => {
-  const handleClick = () => {
-    console.log('Clicked button..')
-    doSomething();
-  }
-
-  doSomethingButton.addEventListener("click", handleClick);
-
-  console.log('Initialized..');
+export default () => {
+  return (
+    <div>
+      <h1>Reactron!</h1>
+    </div>
+  );
 }
