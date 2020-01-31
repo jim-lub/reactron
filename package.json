@@ -8,8 +8,8 @@
   "main": "build/main.js",
   "build": {
     "extends": null,
-    "appId": "app.mapeditor.mapeditor",
-    "productName": "Mapeditor",
+    "appId": "reactron.boilerplate",
+    "productName": "Reactron",
     "win": {
       "target": "nsis"
     },

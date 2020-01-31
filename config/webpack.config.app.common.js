@@ -1,11 +1,13 @@
 const path = require('path');
-
+const config = require('../package.json');
+console.log(config.dependencies)
 module.exports = {
+  devtool: "source-map",
+
   target: "electron-renderer",
-  
+
   entry: {
-    app: "./src/app/index.tsx",
-    // vendor: "./src/app/vendor.js"
+    app: "./src/app/index.tsx"
   },
 
   resolve: {
