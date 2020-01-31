@@ -21,6 +21,23 @@ module.exports = {
       { // SASS LOADER
         test: /\.s[ac]ss$/,
         use: ["style-loader", "css-loader", "sass-loader"]
+      },
+
+      { // HTML LOADER
+        test: /\.html$/,
+        use: ["html-loader"]
+      },
+
+      { // FILE LOADER: IMAGES
+        test: /\.(svg|png|jpg|gif)$/,
+        use: {
+          loader: "file-loader",
+          options: {
+            name: "[name].[hash].[ext]",
+            outputPath: "assets/images",
+            esModule: false, // fix for wrong image src in html file
+          }
+        }
       }
     ]
   }

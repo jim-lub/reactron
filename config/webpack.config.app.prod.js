@@ -1,4 +1,4 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const path = require('path');
 const merge = require('webpack-merge');
 
@@ -10,5 +10,9 @@ module.exports = merge(commonConfig, {
   output: {
     filename: "main.[contentHash].js",
     path: path.resolve(__dirname, "..", "build")
-  }
+  },
+
+  plugins: [
+    new CleanWebpackPlugin()
+  ],
 });
