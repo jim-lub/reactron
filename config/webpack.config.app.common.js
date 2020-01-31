@@ -8,13 +8,22 @@ module.exports = {
 
   module: {
     rules: [
-      /** HTML-LOADER **/
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env", "@babel/preset-react"]
+          }
+        }
+      },
+
       {
         test: /\.html$/,
         use: ["html-loader"]
       },
-      
-      /** FILE-LOADER: SVG, PNG, JPG, GIF **/
+
       {
         test: /\.(svg|png|jpg|gif)$/,
         use: {
