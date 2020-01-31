@@ -6,10 +6,26 @@
   "author": "",
   "license": "MIT",
   "main": "build/main.js",
+  "build": {
+    "extends": null,
+    "appId": "app.mapeditor.mapeditor",
+    "productName": "Mapeditor",
+    "win": {
+      "target": "nsis"
+    },
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "resources"
+    }
+  },
   "scripts": {
     "react:start": "webpack-dev-server --config config/webpack.config.app.dev.js --open",
     "react:build": "webpack --config config/webpack.config.app.prod.js",
-    "electron:start": "electron ."
+    "electron:start": "electron .",
+    "electron:pack": "electron-builder"
   },
   "dependencies": {
     "electron-is-dev": "^1.1.0",
