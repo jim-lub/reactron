@@ -6,7 +6,7 @@ module.exports = merge(commonConfig, {
   mode: "production",
 
   output: {
-    filename: "main.prod.js",
+    filename: "main.js",
     path: path.join(__dirname, "..", "build")
   }
 });

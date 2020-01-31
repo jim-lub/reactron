@@ -1,6 +1,7 @@
 import { app, BrowserWindow } from 'electron';
 var path = require("path");
 var isDev = require("electron-is-dev");
+import { doSomething } from './lib/helpers';
 
 let win: any;
 
@@ -13,6 +14,8 @@ const createWindow = () => {
       // webSecurity: false
     }
   });
+
+  doSomething();
 
   win.loadURL(
     (isDev)
