@@ -1,6 +1,8 @@
 const path = require('path');
 
 module.exports = {
+  target: "electron-renderer",
+  
   entry: {
     app: "./src/app/index.tsx",
     // vendor: "./src/app/vendor.js"
