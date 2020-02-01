@@ -52,7 +52,15 @@ module.exports = merge(commonConfig, {
         test: /\.css$/,
         use: [
           MiniCssExtractPlugin.loader,
-          "css-loader"
+          "css-loader",
+          {
+            loader: 'postcss-loader',
+            options: {
+              config: {
+                path: './config'
+              }
+            }
+          }
         ]
       },
 
@@ -62,7 +70,15 @@ module.exports = merge(commonConfig, {
         use: [
           MiniCssExtractPlugin.loader,
           "css-loader",
-          "sass-loader"
+          {
+            loader: 'postcss-loader',
+            options: {
+              config: {
+                path: './config'
+              }
+            }
+          },
+          "sass-loader",
         ]
       }
     ]

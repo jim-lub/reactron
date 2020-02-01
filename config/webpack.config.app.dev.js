@@ -26,7 +26,15 @@ module.exports = merge(commonConfig, {
         test: /\.css$/,
         use: [
           "style-loader",
-          "css-loader"
+          "css-loader",
+          {
+            loader: 'postcss-loader',
+            options: {
+              config: {
+                path: './config'
+              }
+            }
+          }
         ]
       },
 
@@ -36,6 +44,14 @@ module.exports = merge(commonConfig, {
         use: [
           "style-loader",
           "css-loader",
+          {
+            loader: 'postcss-loader',
+            options: {
+              config: {
+                path: './config'
+              }
+            }
+          },
           "sass-loader"
         ]
       }
