@@ -1,22 +1,15 @@
 const path = require('path');
+const merge = require('webpack-merge');
+const webpackConfig = require('./webpack.config');
 
-module.exports = {
+module.exports = merge(webpackConfig, {
   devtool: "source-map",
 
   target: "electron-renderer",
 
   entry: {
     app: "./src/app/index.ts",
-    renderer: "./src/internals/renderer/index.tsx",
-  },
-
-  resolve: {
-    alias: {
-      app: path.resolve(__dirname, "..", "src", "app"),
-      internals: path.resolve(__dirname, "..", "src", "internals"),
-      shared: path.resolve(__dirname, "..", "src", "shared")
-    },
-    extensions: [".ts", ".tsx", ".js", ".jsx"]
+    renderer: "./src/reactron/renderer/index.tsx",
   },
 
   module: {
@@ -54,4 +47,4 @@ module.exports = {
       }
     ]
   }
-}
+});

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import loadContent from 'internals/renderer/lib/loadContent';
+import loadContent from 'renderer/lib/loadContent';
 import './reactron-window.scss';
 
 const ReactronWindow = () => {

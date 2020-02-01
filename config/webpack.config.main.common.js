@@ -1,23 +1,16 @@
 const path = require('path');
+const merge = require('webpack-merge');
+const webpackConfig = require('./webpack.config');
 
-module.exports = {
+module.exports = merge(webpackConfig, {
   target: "electron-main",
 
   entry: {
-    app: path.resolve(__dirname, "..", "src", "internals", "main", "index.ts")
+    app: path.resolve(__dirname, "..", "src", "reactron", "main", "index.ts")
   },
 
   node: {
     __dirname: false
-  },
-
-  resolve: {
-    alias: {
-      app: path.resolve(__dirname, "..", "src", "app"),
-      internals: path.resolve(__dirname, "..", "src", "internals"),
-      shared: path.resolve(__dirname, "..", "src", "shared")
-    },
-    extensions: [".ts", ".tsx", ".js", ".jsx"]
   },
 
   module: {
@@ -37,4 +30,4 @@ module.exports = {
       }
     ]
   }
-}
+});

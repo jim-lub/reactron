@@ -3,9 +3,11 @@
     "baseUrl": "src",
     "paths": {
       "app": ["app"],
-      "internals": ["internals"],
+      "main": ["reactron/main"],
+      "renderer": ["reactron/renderer"],
       "shared": ["shared"],
     },
+    "rootDirs": ["./src"],
     "lib": [
       "dom",
       "dom.iterable",
