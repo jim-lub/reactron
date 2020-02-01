@@ -4,7 +4,7 @@ module.exports = {
   target: "electron-main",
 
   entry: {
-    app: path.resolve(__dirname, "..", "src", "main", "index.ts")
+    app: path.resolve(__dirname, "..", "src", "internals", "main", "index.ts")
   },
 
   node: {

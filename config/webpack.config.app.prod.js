@@ -30,7 +30,12 @@ module.exports = merge(commonConfig, {
           removeComments: true
         }
       })
-    ]
+    ],
+    splitChunks: {
+      name: true,
+      automaticNameDelimiter: '.',
+      chunks: 'all'
+    }
   },
 
   plugins: [
