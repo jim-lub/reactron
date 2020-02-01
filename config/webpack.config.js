@@ -4,8 +4,7 @@ module.exports = {
   resolve: {
     alias: {
       app: path.resolve(__dirname, "..", "src", "app"),
-      main: path.resolve(__dirname, "..", "src", "reactron", "main"),
-      renderer: path.resolve(__dirname, "..", "src", "reactron", "renderer"),
+      reactron: path.resolve(__dirname, "..", "src", "reactron"),
       shared: path.resolve(__dirname, "..", "src", "shared")
     },
     extensions: [".ts", ".tsx", ".js", ".jsx"]

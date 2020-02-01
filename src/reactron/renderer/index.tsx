@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { ReactronWindow } from './Components/ReactronWindow';
+import { Root } from './Components';
 
 import 'shared/css/index.scss';
+import './css/index.scss'
 
-ReactDOM.render(<ReactronWindow />, document.getElementById('root'));
+ReactDOM.render(<Root />, document.getElementById('root'));

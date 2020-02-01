@@ -3,13 +3,13 @@
   padding: 0;
   margin: 0;
   font: 12px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  // font: caption;
   font-size: 12px;
 }
 
 html, body {
-  background-color: #dae0e6;
   height: 100%;
-  scroll-behavior: smooth;
+  background-color: transparent;
 }
 
 span {

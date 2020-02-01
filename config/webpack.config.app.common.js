@@ -35,7 +35,21 @@ module.exports = merge(webpackConfig, {
       },
 
       {
-        test: /\.(svg|png|jpg|gif)$/,
+        test: /\.svg$/,
+        use: [
+          '@svgr/webpack',
+          {
+            loader: "file-loader",
+            options: {
+              name: "[name].[hash].[ext]",
+              outputPath: "static/images",
+              esModule: false, // temp fix for wrong image src in html file
+          }
+        }],
+      },
+
+      {
+        test: /\.(png|jpg|gif)$/,
         use: {
           loader: "file-loader",
           options: {

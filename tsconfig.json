@@ -3,11 +3,9 @@
     "baseUrl": "src",
     "paths": {
       "app": ["app"],
-      "main": ["reactron/main"],
-      "renderer": ["reactron/renderer"],
+      "reactron": ["reactron"],
       "shared": ["shared"],
     },
-    "rootDirs": ["./src"],
     "lib": [
       "dom",
       "dom.iterable",
