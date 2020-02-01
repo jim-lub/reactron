@@ -1,11 +1,12 @@
 import React from "react";
 import { ipcRenderer } from 'electron';
+import channels from 'shared/constants/channels';
 
 export interface HelloProps { compiler: string; framework: string; }
 
 export const App = (props: HelloProps) => {
   const handleClick = () => {
-      ipcRenderer.send('window.open', 'hello');
+      ipcRenderer.send(channels.window.open, 'hello');
   }
 
   return (

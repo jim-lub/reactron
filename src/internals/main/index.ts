@@ -1,6 +1,6 @@
 import { app } from 'electron';
-import { openWindow } from './lib/windows/operations';
-import './lib/windows/listeners';
+import { openWindow } from 'internals/main/lib/windows/operations';
+import 'internals/main/lib/windows/listeners';
 
 const init = () => {
   openWindow();

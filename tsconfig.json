@@ -1,6 +1,11 @@
 {
   "compilerOptions": {
     "baseUrl": "src",
+    "paths": {
+      "app": ["app"],
+      "internals": ["internals"],
+      "shared": ["shared"],
+    },
     "lib": [
       "dom",
       "dom.iterable",
