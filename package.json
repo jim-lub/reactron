@@ -28,6 +28,7 @@
     "main:start": "concurrently \"npm run-script main:build-dev\" \"cross-env NODE_ENV=dev nodemon --exec \"\"wait-on http://localhost:8080 && electron build/main.js\"\"",
     "main:build-dev": "webpack --config config/webpack.config.main.dev.js -w",
     "main:build": "webpack --config config/webpack.config.main.prod.js",
+    "renderer:build": "webpack --config config/webpack.config.renderer.prod.js",
     "start": "concurrently \"npm run-script app:start\" \"npm run-script main:start\"",
     "build": "concurrently \"npm run-script app:build\" \"npm run-script main:build\"",
     "dist": "npm run-script build && electron-builder"

@@ -8,12 +8,13 @@ const openWindow = () => {
     height: 800,
     webPreferences: {
       nodeIntegration: true
-    }
+    },
+    // frame: false
   });
 
   loadURL({ window });
 
-  window.webContents.openDevTools();
+  // window.webContents.openDevTools();
 
   window.on('closed', () => console.log('Closed window'));
 }

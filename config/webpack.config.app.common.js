@@ -1,5 +1,4 @@
 const path = require('path');
-const config = require('../package.json');
 
 module.exports = {
   devtool: "source-map",
@@ -7,7 +6,8 @@ module.exports = {
   target: "electron-renderer",
 
   entry: {
-    app: "./src/app/index.tsx"
+    app: "./src/app/index.ts",
+    renderer: "./src/internals/renderer/index.tsx",
   },
 
   resolve: {
