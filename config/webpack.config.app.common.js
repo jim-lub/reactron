@@ -1,6 +1,6 @@
 const path = require('path');
 const config = require('../package.json');
-console.log(config.dependencies)
+
 module.exports = {
   devtool: "source-map",
 

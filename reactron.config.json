@@ -1,0 +1,19 @@
+{
+  "app": {
+    "entry": "./src/app/index.tsx"
+  },
+  "main": {
+    "entry": "./src/main/index.ts"
+  },
+  "reactron": {
+    "entry": "./src/reactron/index.ts",
+  },
+  "development": {
+    "server": {
+      "port": 8080
+    }
+  },
+  "build": {
+    "excludeNodeModulesPackage": []
+  }
+}

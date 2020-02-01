@@ -1,7 +1,8 @@
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, ipcMain } from 'electron';
 var path = require("path");
 var isDev = require("electron-is-dev");
 import { doSomething } from './lib/helpers';
+import './lib/browser/windows/listeners';
 
 let win: any;
 
@@ -28,6 +29,11 @@ const createWindow = () => {
     win = null;
   });
 }
+
+ipcMain.on('appmessage', () => {
+  console.log('received message from app');
+});
+
 
 app.on('ready', createWindow);
 
