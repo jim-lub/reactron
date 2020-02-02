@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 
-import loadContent from 'reactron/renderer/lib/loadContent';
+import loadContent from 'renderer/lib/loadContent';
 
-import { DefaultWindow} from '../';
+import { DefaultWindow} from 'renderer/Components';
 
 const Root = () => {
   useEffect(() => loadContent(), []); // runs after initial render
@@ -11,7 +11,7 @@ const Root = () => {
     <DefaultWindow>
       <div id="app-root">
         {/*
-          After completing the initial render, the Root renderer will inject the 
+          After completing the initial render, the Root renderer will inject the
           app's content in this container by utilizing ReactDOM.render().
         */}
       </div>

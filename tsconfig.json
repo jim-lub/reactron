@@ -2,9 +2,11 @@
   "compilerOptions": {
     "baseUrl": "src",
     "paths": {
-      "app": ["app"],
-      "reactron": ["reactron"],
-      "shared": ["shared"],
+      "app/*": ["app/*"],
+      "main/*": ["reactron/main/*"],
+      "reactron/*": ["reactron/*"],
+      "renderer/*": ["reactron/renderer/*"],
+      "shared/*": ["shared/*"],
     },
     "lib": [
       "dom",

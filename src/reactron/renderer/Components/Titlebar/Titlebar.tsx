@@ -1,6 +1,8 @@
 import React from 'react';
 
-import { ReactComponent as CloseIcon } from 'reactron/renderer/assets/icons/window/close.svg';
+import { ReactComponent as CloseIcon } from 'renderer/assets/icons/window/close.svg';
+// import { ReactComponent as MaximizeIcon } from 'renderer/assets/icons/window/maximize.svg';
+// import { ReactComponent as MinimizeIcon } from 'renderer/assets/icons/window/minimize.svg';
 
 interface Props {
   title: string
