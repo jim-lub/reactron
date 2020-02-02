@@ -9,7 +9,7 @@ const openWindow = () => {
     webPreferences: {
       nodeIntegration: true
     },
-    transparent: true,
+    // transparent: true,
     frame: false
   });
 

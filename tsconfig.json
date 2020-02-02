@@ -3,8 +3,8 @@
     "baseUrl": "src",
     "paths": {
       "app/*": ["app/*"],
-      "main/*": ["reactron/main/*"],
       "reactron/*": ["reactron/*"],
+      "main/*": ["reactron/main/*"],
       "renderer/*": ["reactron/renderer/*"],
       "shared/*": ["shared/*"],
     },
