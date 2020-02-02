@@ -1,5 +1,5 @@
 import { ipcMain } from 'electron';
-import channels from 'shared/constants/channels';
+import channels from '@reactron/constants/channels';
 
 import { openWindow } from '../operations';
 

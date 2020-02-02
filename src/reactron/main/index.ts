@@ -1,6 +1,6 @@
 import { app } from 'electron';
-import { openWindow } from 'reactron/main/lib/windows/operations';
-import 'reactron/main/lib/windows/listeners';
+import { openWindow } from '@reactron/main/lib/windows/operations';
+import '@reactron/main/lib/windows/listeners';
 
 const init = () => {
   openWindow();

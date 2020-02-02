@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Titlebar } from 'renderer/Components';
+import { Titlebar } from '@reactron/components';
 
 interface Props {
   children: React.ReactChild

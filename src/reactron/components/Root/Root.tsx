@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 
-import loadContent from 'renderer/lib/loadContent';
+import loadContent from '@reactron/renderer/lib/loadContent';
 
-import { DefaultWindow} from 'renderer/Components';
+import { DefaultWindow } from '@reactron/components';
 
 const Root = () => {
   useEffect(() => loadContent(), []); // runs after initial render

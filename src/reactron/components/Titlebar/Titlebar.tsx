@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { ReactComponent as CloseIcon } from 'renderer/assets/icons/window/close.svg';
-import { ReactComponent as MaximizeIcon } from 'renderer/assets/icons/window/maximize.svg';
-import { ReactComponent as UnMaximizeIcon } from 'renderer/assets/icons/window/unmaximize.svg';
-import { ReactComponent as MinimizeIcon } from 'renderer/assets/icons/window/minimize.svg';
+import { ReactComponent as CloseIcon } from '@reactron/assets/icons/window/close-2.svg';
+import { ReactComponent as MaximizeIcon } from '@reactron/assets/icons/window/maximize-2.svg';
+import { ReactComponent as UnMaximizeIcon } from '@reactron/assets/icons/window/unmaximize-2.svg';
+import { ReactComponent as MinimizeIcon } from '@reactron/assets/icons/window/minimize-2.svg';
 
 interface Props {
   title: string
@@ -22,7 +22,7 @@ const Titlebar = ({ title }: Props) => {
         <MaximizeIcon className="reactron-title__button-icon"/>
       </div>
 
-      <div className="reactron-title__button">
+      <div className="reactron-title__button warning">
         <CloseIcon className="reactron-title__button-icon"/>
       </div>
 

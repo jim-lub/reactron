@@ -3,9 +3,8 @@
     "baseUrl": "src",
     "paths": {
       "app/*": ["app/*"],
-      "reactron/*": ["reactron/*"],
-      "main/*": ["reactron/main/*"],
-      "renderer/*": ["reactron/renderer/*"],
+      "reactron": ["reactron/index.ts"],
+      "@reactron/*": ["reactron/*"],
       "shared/*": ["shared/*"],
     },
     "lib": [
