@@ -48,6 +48,7 @@ h5 {
   width: 100vw;
   border: solid 1px #555555;
   background-color: #ffffff;
+  background-color: #dae0e6;
 }
 
 .reactron-default-window__grid {
@@ -68,22 +69,23 @@ h5 {
   -webkit-user-select: none;
   display: flex;
   width: 100%;
-  border: solid 1px #ffffff;
   border-bottom: solid 1px #bbbbbb;
   background-color: #f9f9fa;
-  // background-color: #e5e5e5;
 }
 
 .reactron-titlebar__title-wrapper {
   flex: 1 1 auto;
-  padding: 5px 10px;
+  padding: 2px 7px;
+  margin: 3px 7px 3px 3px;
+  border-right: dotted 1px #cccccc;
+  font-size: 11px;
 }
 
 .reactron-title__button {
   flex: 0 0 auto;
   -webkit-app-region: no-drag;
   fill: #999999;
-  padding: 8px 8px 0px 0px;
+  padding: 7px 7px 0px 0px;
 }
 
 .reactron-title__button:hover {

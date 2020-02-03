@@ -3,7 +3,8 @@ import { openWindow } from '@reactron/main/lib/windows/operations';
 import '@reactron/main/lib/windows/listeners';
 
 const init = () => {
-  openWindow();
+  openWindow({ alias: 'launcher' });
+  openWindow({ alias: 'devtools' });
 }
 
 app.on('ready', init);

@@ -1,15 +1,26 @@
 import React from 'react';
 import Reactron from 'reactron';
 
-const Launcher = () => {
-  const handleClick = () => {
-    Reactron.windowClient.createWindow();
+const Launcher = ({ uid }: { uid: string }) => {
+  const handleClickOne = () => {
+    Reactron.windowClient.createWindow({ alias: 'launcher' });
+  }
+
+  const handleClickTwo = () => {
+    Reactron.windowClient.createWindow({ alias: 'devtools' });
+  }
+
+  const logClick = () => {
+    // const state = Reactron.storeClient.getState();
+    // console.log(state)
   }
 
   return (
-    <div>
-      Content.. whattttttt!?!?!
-      <button onClick={handleClick}>Open Window</button>
+    <div style={{padding: 10}}>
+      <button onClick={handleClickOne}>Open new `Launcher` window</button>
+      <button onClick={handleClickTwo}>Open new `DevTools` window</button>
+      <button onClick={logClick}>LOG STATE</button>
+      <span>{ uid }</span>
     </div>
     )
   }
