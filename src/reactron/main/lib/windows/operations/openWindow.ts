@@ -32,16 +32,9 @@ const openWindow = ({ alias }: Props) => {
       alias: 'new_window',
       ref: window
     }
-  )
+  );
 
-  window.on('closed', () => {
-    dispatch(
-      reducers.removeWindowRef,
-      {
-        uid
-      }
-    )
-  });
+  window.on('closed', () => dispatch( reducers.removeWindowRef, { uid }));
 }
 
 export default openWindow;

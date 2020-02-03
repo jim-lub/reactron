@@ -11,8 +11,8 @@ const addWindowRef = (state: State, payload: Payload) => {
 
   return {
     ...state,
-    windowRefs: {
-      ...state.windowRefs,
+    windows: {
+      ...state.windows,
       [uid]: {
         alias,
         ref,

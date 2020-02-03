@@ -13,8 +13,8 @@ let state: State = { windows: {} };
 
 export const dispatch = (fn: Function, payload: {}) => {
   state = fn(state, payload);
-  // console.log('----------------------------------')
-  // console.log('%o', state);
+  console.log('----------------------------------')
+  console.log('%o', state);
 }
 
 export const getState = () => state;

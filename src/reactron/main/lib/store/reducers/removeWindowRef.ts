@@ -9,8 +9,8 @@ const removeWindowRef = (state: State, payload: Payload) => {
 
   return {
     ...state,
-    windowRefs: {
-      ...Object.entries(state.windowRefs).reduce((obj, [uid, props]) => {
+    windows: {
+      ...Object.entries(state.windows).reduce((obj, [uid, props]) => {
         if (uid === uid_to_remove) return obj;
 
         return obj = {
