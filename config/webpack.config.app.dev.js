@@ -15,7 +15,7 @@ module.exports = merge(commonConfig, {
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/public/index.html"
+      template: "./src/reactron/renderer/template.html"
     })
   ],
 

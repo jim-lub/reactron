@@ -23,7 +23,7 @@ module.exports = merge(commonConfig, {
       new OptimizeCssAssetsPlugin(),
       new TerserPlugin(),
       new HtmlWebpackPlugin({
-        template: "./src/public/index.html",
+        template: "./src/reactron/renderer/template.html",
         minify: {
           removeAttributeQuotes: true,
           collapseWhitespace: true,

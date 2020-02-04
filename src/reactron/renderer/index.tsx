@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Root } from '@reactron/components';
+// import { Root } from '@components';
 
-import 'shared/css/index.scss';
+const Root = () => {  
+  return <h1>Stuff</h1>
+}
 
 ReactDOM.render(<Root />, document.getElementById('root'));

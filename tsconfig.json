@@ -2,10 +2,17 @@
   "compilerOptions": {
     "baseUrl": "src",
     "paths": {
-      "app/*": ["app/*"],
       "reactron": ["reactron/index.ts"],
-      "@reactron/*": ["reactron/*"],
+      "@clients/*": ["reactron/clients/*"],
+      "@components/*": ["reactron/components/*"],
+      "@constants/*": ["reactron/constants/*"],
+      "@lib/*": ["reactron/lib/*"],
+      "@main/*": ["reactron/main/*"],
+      "@renderer/*": ["reactron/renderer/*"],
+      "@state/*": ["reactron/state/*"],
+
       "shared/*": ["shared/*"],
+      "windows/*": ["windows/*"]
     },
     "lib": [
       "dom",
@@ -30,6 +37,7 @@
   ],
   "exclude": [
     "node_modules",
-    "build"
+    "build",
+    "dist"
   ]
 }

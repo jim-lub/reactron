@@ -8,7 +8,6 @@ module.exports = merge(webpackConfig, {
   target: "electron-renderer",
 
   entry: {
-    app: "./src/app/index.ts",
     renderer: "./src/reactron/renderer/index.tsx",
   },
 
