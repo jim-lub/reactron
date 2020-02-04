@@ -9,6 +9,11 @@ const channels = {
     close             : "window:close",
     minimize          : "window:minimize",
     maximize          : "window:maximize",
+  },
+
+  state: {
+    subscribe         : "state:subscribe",
+    listen            : "state:listen"
   }
 }
 

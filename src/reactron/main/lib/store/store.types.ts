@@ -5,6 +5,12 @@ export interface Action {
   }
 }
 
+export interface Listener {
+  target: { id: string },
+  channel: string,
+  subscribed: string[]
+}
+
 export interface ReducerMap {
   [key: string]: Reducer
 }

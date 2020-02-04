@@ -6,17 +6,16 @@ interface Props {
     id: string
   },
   payload: {
-    type: string,
-    width: number,
-    height: number
+    channel: string,
+    subscribe: string[]
   }
 }
 
-const open = ({ source, payload }: Props) => {
-  ipcRenderer.send(channels.window.open, {
+const subscribe = ({ source, payload }: Props) => {
+  ipcRenderer.send(channels.state.subscribe, {
     source,
     payload
   });
 }
 
-export default open;
+export default subscribe;
