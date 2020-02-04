@@ -1,13 +1,12 @@
 import { Action, Reducer, State } from './store.types';
 
-const createStore = (reducer: Reducer, initialState?: State) => {
-  let currentState = initialState || {};
+const createStore = (reducer: Reducer) => {
+  let currentState = {};
   const listeners = [];
 
   function dispatch(action: Action) {
-    console.log('..dispatch(): ' + action);
-
     currentState = reducer(currentState, action);
+    console.log(currentState)
   }
 
   function subscribe() {
@@ -19,11 +18,10 @@ const createStore = (reducer: Reducer, initialState?: State) => {
   }
 
   function getState() {
-    console.log('..getState()');
-    console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
-    console.log(currentState);
-    console.log('<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<');
+    return currentState;
   }
+
+  dispatch({ type: 'init', payload: {} });
 
   return {
     dispatch, subscribe, unsubscribe, getState

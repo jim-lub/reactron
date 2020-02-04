@@ -1,22 +1,22 @@
 import { app } from 'electron';
-import { default as openWindow } from '@main/windows/lib/openWindow';
-import { combineReducers, createStore } from '@lib/store';
 
-import windowsReducer from '@state/windows';
+import createWindow from '@main/state/windows/operations/createWindow';
+import windowTypes from '@constants/windowTypes';
 
-import './windows/listeners.ts';
+/** initialize store + listeners **/
+import '@main/store';
+import '@main/state/windows';
+
 
 const initialize = () => {
-  const reducers = combineReducers({
-    windows: windowsReducer
+  createWindow({
+    source: { id: 'initial' },
+    payload: {
+      type: windowTypes.launcher,
+      width: 600,
+      height: 400
+    }
   })
-
-  const { dispatch, subscribe, unsubscribe, getState } = createStore(reducers);
-
-  dispatch({ type: 'windows:addRef', payload: { uid: '310290da', alias: 'launcher' } });
-  getState();
-
-  openWindow({ alias: 'launcher' });
 }
 
 app.on('ready', () => {
