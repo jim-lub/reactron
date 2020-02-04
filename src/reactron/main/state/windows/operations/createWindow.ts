@@ -29,6 +29,8 @@ const createWindow = ({ payload }: Props) => {
     // frame: false
   });
 
+  win.webContents.openDevTools();
+
   utils.loadURL({
     id,
     type,
