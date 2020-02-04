@@ -7,7 +7,8 @@ export enum logTypes {
   app     = 'app',
   event   = 'event',
   list    = 'list',
-  store    = 'store'
+  store   = 'store',
+  ext     = '>'
 }
 
 const _formatLogType = (logType: string) => {
@@ -16,6 +17,7 @@ const _formatLogType = (logType: string) => {
     case logTypes.event:    return `[${ clc.magenta(logType) }]`;
     case logTypes.list:    return `[${ clc.yellow(logType) }]`;
     case logTypes.store:    return `[${ clc.cyan(logType) }]`;
+    case logTypes.ext:    return `[${ clc.blackBright(logType) }]`;
     default:                return `[${ logType }]`;
   }
 }
