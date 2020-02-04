@@ -1,3 +1,4 @@
+import log from '@main/lib/log';
 import { Action, Reducer, State } from './store.types';
 
 const createStore = (reducer: Reducer) => {
@@ -5,8 +6,8 @@ const createStore = (reducer: Reducer) => {
   const listeners = [];
 
   function dispatch(action: Action) {
+    log.store(action.type, action.payload);
     currentState = reducer(currentState, action);
-    console.log(currentState)
   }
 
   function subscribe() {

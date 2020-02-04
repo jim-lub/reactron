@@ -1,5 +1,6 @@
 import { app } from 'electron';
 
+import log from '@main/lib/log';
 import createWindow from '@main/state/windows/operations/createWindow';
 import windowTypes from '@constants/windowTypes';
 
@@ -16,10 +17,11 @@ const initialize = () => {
       width: 600,
       height: 400
     }
-  })
+  });
 }
 
 app.on('ready', () => {
+  log.app('info', 'Initializing app..')
   initialize();
 });
 
