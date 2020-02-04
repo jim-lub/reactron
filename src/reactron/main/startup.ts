@@ -21,8 +21,10 @@ const initialize = () => {
 }
 
 app.on('ready', () => {
-  log.app('info', 'Initializing app..')
+  log.welcomeToReactron();
+  log.app('info', 'Initializing app...');
   initialize();
+  log.app('success', 'Ready!');
 });
 
 app.on('window-all-closed', () => {

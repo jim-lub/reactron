@@ -1,5 +1,6 @@
 import * as clc from 'cli-color';
 import * as isDev from 'electron-is-dev';
+
 import {
   formatOriginPath,
   logSingleLineOutput,

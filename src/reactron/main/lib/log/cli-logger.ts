@@ -45,6 +45,13 @@ export const logDataTableLine = (length: number) => {
   console.log(out_whitespace + clc.blackBright(out_line));
 }
 
+export const logDataTableLineAlt = (length: number) => {
+  const out_whitespace = ' '.repeat( WHITESPACE_MODIFIER + 6 );
+  const out_line = '-'.repeat( length - 2 );
+
+  console.log(out_whitespace + clc.blackBright('+' + out_line + '+'));
+}
+
 export const logDataTableOutput = (header: Array<any>, rows: Array<any>) => {
   const out_whitespace = ' '.repeat( WHITESPACE_MODIFIER + 5 );
   const out_header = [out_whitespace, ...header];

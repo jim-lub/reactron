@@ -6,7 +6,10 @@ const createStore = (reducer: Reducer) => {
   const listeners = [];
 
   function dispatch(action: Action) {
-    log.store(action.type, action.payload);
+    if (action.type !== 'init') {
+      log.store(action.type, action.payload);
+    }
+
     currentState = reducer(currentState, action);
   }
 

@@ -22,18 +22,18 @@ const store = (actionType: string, payload: {}) => {
   });
 
   /*** OUTPUT ***/
-  logDataTableLine(74);
+  logDataTableLine(75);
   logSingleLineOutput(
     logTypes.store,
     `${clc.bgYellow.black(` dispatch `)} ${clc.bgYellow.black(` action `)} ${clc.bgCyan.black(` ${actionType} `)}`
   );
 
-  logDataTableLine(74);
+  logDataTableLine(75);
   logDataTableOutput(
     header,
     rows
   );
-  logDataTableLine(74);
+  logDataTableLine(75);
 }
 
 export default store;
