@@ -1,1 +1,2 @@
-export { default as getUrlParams } from '@renderer/lib/utils/getUrlParams';
+export { default as getCurrentWindowId } from './getCurrentWindowId';
+export { default as getUrlParams } from './getUrlParams';

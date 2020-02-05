@@ -15,18 +15,16 @@ const Launcher = ({ id }: { id: string }) => {
       },
       payload: {
         type,
-        width: 400,
-        height: 400
+        width: 800,
+        height: 600
       }
     });
   }
 
-  const handleGetClick = () => {
-    storeClient.get({
-      source: { id },
-      payload: { path: 'windows.refs' }
-    })
-    .then((res) => console.log(res));
+  const handleGetClick = async () => {
+    const result = await storeClient.get('_windows.refs');
+
+    console.log(result);
   }
 
   const listChannels = () => {

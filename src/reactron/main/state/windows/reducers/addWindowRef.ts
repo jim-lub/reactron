@@ -1,13 +1,14 @@
-import { Types } from '@main/lib/store';
+import { State, Action } from '~types/store';
 
-const addWindowRef = (state: Types.State, action: Types.Action) => {
-  const { id, alias, ref } = action.payload;
+const addWindowRef = (state: State, action: Action) => {
+  const { id, type, alias, ref } = action.payload;
 
   return {
     ...state,
     refs: {
       ...state.refs,
       [id]: {
+        type,
         alias,
         ref
       }

@@ -19,7 +19,7 @@ const createStore = (reducer: Reducer) => {
     listeners.forEach(({ target, channel, subscribed }: Listener) => {
       log.app('info', 'Sending data to ' + target.id + ' on channel ' + channel );
 
-      const win = deepFind(currentState, `windows.refs.${target.id}`);
+      const win = deepFind(currentState, `_windows.refs.${target.id}`);
 
       // if !win remove listener
       if (win) {
@@ -41,7 +41,7 @@ const createStore = (reducer: Reducer) => {
       ? deepFind(currentState, payload.path, true)
       : currentState;
 
-    const win = deepFind(currentState, `windows.refs.${source.id}`);
+    const win = deepFind(currentState, `_windows.refs.${source.id}`);
 
     if (win) {
       win.ref.webContents.send(returnChannel, data);

@@ -1,11 +1,14 @@
 import React from 'react';
 
+import { WindowList } from './components/WindowList';
+
 const DevTools = ({ id }: { id: string }) => {
   return (
     <>
       <h1>DevTools</h1>
-      <h5>{ id }</h5>
-      <br />
+      <div>
+        <WindowList />
+      </div>
     </>
   )
 }

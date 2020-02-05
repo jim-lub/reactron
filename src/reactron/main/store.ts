@@ -3,7 +3,7 @@ import { combineReducers, createStore } from '@main/lib/store';
 
 
 const rootReducer = combineReducers({
-  windows: windowsReducer
+  _windows: windowsReducer
 });
 
 let storeInstance;

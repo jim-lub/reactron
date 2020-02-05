@@ -14,7 +14,7 @@ const Router = () => {
   }
 
   return (
-    <div style={{height: '100%', width: '100%', border: 'solid 10px #ddf542'}}>
+    <div style={{height: '100%', width: '100%', padding: 10, border: 'solid 10px #ddf542'}}>
       <Suspense fallback={<div>Loading...</div>}>
         { (type === windowTypes.devTools) ? <DevTools id={id} /> : null }
         { (type === windowTypes.launcher) ? <Launcher id={id} /> : null }

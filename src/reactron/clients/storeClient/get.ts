@@ -1,22 +1,21 @@
 import { ipcRenderer } from 'electron';
 import { v4 as uuid } from 'uuid';
 import channels from '@constants/channels';
+import { getCurrentWindowId } from '@renderer/lib/utils';
 
-interface Props {
-  source: {
-    id: string
-  },
-  payload: {
-    path?: string
-  }
-}
-
-const get = ({ source, payload }: Props) => new Promise((resolve, reject) => {
+const get = (path?: string) => new Promise((resolve) => {
+  const windowId = getCurrentWindowId();
   const returnChannel = uuid();
 
+  if (!windowId) throw new Error(`%NO_WINDOW_ID_PLACEHOLDER%`);
+
   ipcRenderer.send(channels.state.get, {
-    source,
-    payload,
+    source: {
+      id: getCurrentWindowId()
+    },
+    payload: {
+      path
+    },
     returnChannel
   });
 
