@@ -21,6 +21,14 @@ const Launcher = ({ id }: { id: string }) => {
     });
   }
 
+  const handleGetClick = () => {
+    storeClient.get({
+      source: { id },
+      payload: { path: 'windows.refs' }
+    })
+    .then((res) => console.log(res));
+  }
+
   const listChannels = () => {
     ipcRenderer.eventNames().forEach(channel => {
       const listeners = ipcRenderer.rawListeners(channel);
@@ -61,6 +69,7 @@ const Launcher = ({ id }: { id: string }) => {
       <button onClick={() => handleClick(windowTypes.devTools)}>DevTools</button>
       <button onClick={() => handleClick(windowTypes.launcher)}>Launcher</button>
       <button onClick={listChannels}>Log Channels</button>
+      <button onClick={handleGetClick}>Get</button>
     </>
   )
 }

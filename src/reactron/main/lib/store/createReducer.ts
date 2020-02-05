@@ -1,4 +1,4 @@
-import { Action, ReducerMap, State } from './store.types';
+import { Action, ReducerMap, State } from '~types/store';
 
 const createReducer = (initialState: State) => (reducerMap: ReducerMap) => (state: State = initialState, action: Action) => {
   const reducer = reducerMap[ action.type ];

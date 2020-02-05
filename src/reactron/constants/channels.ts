@@ -12,8 +12,9 @@ const channels = {
   },
 
   state: {
-    subscribe         : "state:subscribe",
-    listen            : "state:listen"
+    get               : "state:get",
+    listen            : "state:listen",
+    subscribe         : "state:subscribe"
   }
 }
 

@@ -12,6 +12,7 @@ module.exports = {
       ['@renderer']: path.resolve(__dirname, "..", "src", "reactron", "renderer"),
       ['@state']: path.resolve(__dirname, "..", "src", "reactron", "state"),
 
+      ['~types']: path.resolve(__dirname, "..", "src", "shared", "types"),
       ['shared']: path.resolve(__dirname, "..", "src", "shared"),
       ['windows']: path.resolve(__dirname, "..", "src", "windows")
     },

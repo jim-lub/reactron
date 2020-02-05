@@ -1,4 +1,4 @@
-import { Action, ReducerMap, State } from './store.types';
+import { Action, ReducerMap, State } from '~types/store';
 
 const combineReducers = (reducers: ReducerMap) => {
   return (currentState: State, action: Action) => {

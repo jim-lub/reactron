@@ -11,6 +11,8 @@
       "@renderer/*": ["reactron/renderer/*"],
       "@state/*": ["reactron/state/*"],
 
+      "~types/*": ["shared/types/*"],
+
       "shared/*": ["shared/*"],
       "windows/*": ["windows/*"]
     },
