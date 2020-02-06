@@ -11,7 +11,7 @@ const get = (pathToProperty?: string) => new Promise((resolve) => {
   if (!windowId) throw new Error(`%NO_WINDOW_ID_PLACEHOLDER%`);
   if (!pathToProperty) console.warn(`%NO_PATH_SPECIFIED_PLACEHOLDER%`);
 
-  ipcRenderer.send(channels.state.get, {
+  ipcRenderer.send(channels.store.get, {
     source: {
       id: windowId
     },

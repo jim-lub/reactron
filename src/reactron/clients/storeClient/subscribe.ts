@@ -10,7 +10,7 @@ const subscribe = (returnChannel: string, pathToProperty?: string) => {
   if (!returnChannel) throw new Error(`%NO_RETURN_CHANNEL_PLACEHOLDER%`);
   if (!pathToProperty) console.warn(`%NO_PATH_SPECIFIED_PLACEHOLDER%`);
 
-  ipcRenderer.send(channels.state.subscribe, {
+  ipcRenderer.send(channels.store.subscribe, {
     source: {
       id: windowId
     },
@@ -19,11 +19,6 @@ const subscribe = (returnChannel: string, pathToProperty?: string) => {
       pathToProperty
     }
   });
-
-  return () => {
-    // send unsubscribe message to main
-    console.log('unsubscribe')
-  };
 }
 
 export default subscribe;

@@ -15,6 +15,13 @@ const channels = {
     get               : "state:get",
     listen            : "state:listen",
     subscribe         : "state:subscribe"
+  },
+
+  store: {
+    get               : "store:get",
+    listen            : "store:listen",
+    subscribe         : "store:subscribe",
+    unsubscribe       : "store:unsubscribe"
   }
 }
 

@@ -1,7 +1,7 @@
 import { BrowserWindow } from 'electron';
 import { v4 as uuid } from 'uuid';
 
-import { dispatch } from '@main/store';
+import { dispatch, unsubscribe } from '@main/store';
 import * as actions from '../actions';
 import * as utils from '../utils';
 
@@ -39,7 +39,13 @@ const createWindow = ({ payload }: Props) => {
 
   dispatch( actions.addWindowRef({ id, type, alias: '', ref: win }) );
 
-  win.on('closed', () => dispatch( actions.removeWindowRef({ id }) ));
+  win.on('closed', () => {
+    dispatch( actions.removeWindowRef({ id }) );
+    unsubscribe({
+      source: { id },
+      payload: { type: 'all' }
+    })
+  });
 }
 
 export default createWindow;

@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import { v4 as uuid } from 'uuid';
 
-import { storeClient } from '@clients/index';
+import { storeClient, windowClient } from '@clients/index';
 
 const useStore = (pathToProperty?: string) => {
   /*
   * Generates an unique channel id for this listener instance
   */
-  const [channel] = useState(`store:listen:${ uuid() }`);
+  const [returnChannel] = useState(`store:listen:${ uuid() }`);
   const [value, setValue]: any = useState({});
 
   const compare = (_event: any, result: any) => {
@@ -16,8 +16,8 @@ const useStore = (pathToProperty?: string) => {
     }
   }
 
-  useEffect(() => storeClient.subscribe(channel, pathToProperty), []);
-  useEffect(() => storeClient.listen(channel, compare), [value]);
+  useEffect(() => storeClient.subscribe(returnChannel, pathToProperty), []);
+  useEffect(() => storeClient.listen(returnChannel, compare), [value]);
 
   return [value];
 }

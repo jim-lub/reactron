@@ -10,9 +10,11 @@ let storeInstance;
 
 if (!storeInstance) storeInstance = createStore(rootReducer);
 
-const { dispatch, getState } = storeInstance;
+const { dispatch, subscribe, unsubscribe, getState } = storeInstance;
 
 export {
   dispatch,
+  subscribe,
+  unsubscribe,
   getState
 }

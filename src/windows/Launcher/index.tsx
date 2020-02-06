@@ -7,7 +7,7 @@ import windowTypes from '@constants/windowTypes';
 
 const Launcher = ({ id }: { id: string }) => {
   const [value]: any = storeClient.useStore(`_windows.refs.${windowClient.getWindowProperties().id}`);
-  const [stateTree]: any = storeClient.useStore();
+  // const [stateTree]: any = storeClient.useStore();
 
   const handleClick = (type: string) => {
     windowClient.open({
@@ -26,12 +26,8 @@ const Launcher = ({ id }: { id: string }) => {
     console.log('value', value);
   }, [value]);
 
-  useEffect(() => {
-    console.log('stateTree', stateTree);
-  }, [stateTree]);
-
   const handleGetClick = async () => {
-    const result = await storeClient.get();
+    const result = await storeClient.get('_windows.refs');
     console.log(result);
   }
 

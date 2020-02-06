@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { storeClient } from '@clients/index';
+import { storeClient, windowClient } from '@clients/index';
 import { getCurrentWindowId } from '@renderer/lib/utils';
 
 interface Props {
@@ -8,8 +8,20 @@ interface Props {
 }
 
 const WindowList = () => {
+  const [windowsObj]: any = storeClient.useStore(`_windows.refs`);
   const [windowList, setWindowList] = useState<Array<Props>>([]);
-  const currentWindowId = getCurrentWindowId();
+  const { id: windowId } = windowClient.getWindowProperties();
+
+  useEffect(() => {
+    const list = Object.entries(windowsObj).map(([key, values]: any) => {
+      return ({
+        id: key,
+        type: values.type
+      })
+    });
+
+    setWindowList(list);
+  }, [windowsObj]);
 
   const handleRefresh = async () => {
     const result: any = await storeClient.get('_windows.refs');
@@ -35,7 +47,7 @@ const WindowList = () => {
         {
           windowList.map(({ id, type }: Props) => {
             return (
-              <li key={id} style={{backgroundColor: (id === currentWindowId) ? '#dcedc8' : ''}}>
+              <li key={id} style={{backgroundColor: (id === windowId) ? '#dcedc8' : ''}}>
                 <div style={{display: 'flex', flexWrap: 'nowrap', justifyContent: 'space-around'}}>
                   <div style={{flex: '5 1 auto', padding: '3px 6px', fontWeight: 'bold'}}>{ type }</div>
                   <div style={{flex: '0 0 auto'}}>
