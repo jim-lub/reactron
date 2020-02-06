@@ -7,8 +7,8 @@ export interface Action {
 
 export interface Listener {
   target: { id: string },
-  channel: string,
-  subscribed: string[]
+  path: string,
+  returnChannel: string
 }
 
 export interface ReducerMap {

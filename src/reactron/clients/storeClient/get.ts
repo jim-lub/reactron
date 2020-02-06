@@ -1,22 +1,24 @@
 import { ipcRenderer } from 'electron';
 import { v4 as uuid } from 'uuid';
-import channels from '@constants/channels';
-import { getCurrentWindowId } from '@renderer/lib/utils';
 
-const get = (path?: string) => new Promise((resolve) => {
-  const windowId = getCurrentWindowId();
-  const returnChannel = uuid();
+import { windowClient } from '@clients/index';
+import channels from '@constants/channels';
+
+const get = (pathToProperty?: string) => new Promise((resolve) => {
+  const { id: windowId } = windowClient.getWindowProperties();
+  const returnChannel = `store:listen-once:${ uuid() }`;
 
   if (!windowId) throw new Error(`%NO_WINDOW_ID_PLACEHOLDER%`);
+  if (!pathToProperty) console.warn(`%NO_PATH_SPECIFIED_PLACEHOLDER%`);
 
   ipcRenderer.send(channels.state.get, {
     source: {
-      id: getCurrentWindowId()
+      id: windowId
     },
     payload: {
-      path
+      returnChannel,
+      pathToProperty
     },
-    returnChannel
   });
 
   ipcRenderer.once(returnChannel, (_event, result) => resolve(result));

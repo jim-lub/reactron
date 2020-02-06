@@ -16,14 +16,16 @@ const createStore = (reducer: Reducer) => {
 
     currentState = reducer(currentState, action);
 
-    listeners.forEach(({ target, channel, subscribed }: Listener) => {
-      log.app('info', 'Sending data to ' + target.id + ' on channel ' + channel );
+    listeners.forEach(({ target, path, returnChannel }: Listener) => {
+      log.app('info', 'Sending data to ' + target.id + ' on channel ' + returnChannel );
 
       const win = deepFind(currentState, `_windows.refs.${target.id}`);
-
+      const data = (path)
+        ? deepFind(currentState, path)
+        : currentState;
       // if !win remove listener
       if (win) {
-        win.ref.webContents.send(channel, 'subscribed');
+        win.ref.webContents.send(returnChannel, data);
       }
     });
   }
@@ -31,20 +33,20 @@ const createStore = (reducer: Reducer) => {
   ipcMain.on(channels.state.subscribe, (_event, { source, payload }) => {
     listeners.push({
       target: { id: source.id },
-      channel: payload.channel,
-      subscribed: payload.subscribe
+      path: payload.pathToProperty,
+      returnChannel: payload.returnChannel
     });
   });
 
-  ipcMain.on(channels.state.get, (_event, { source, payload, returnChannel }) => {
-    const data = (payload.path)
-      ? deepFind(currentState, payload.path, true)
+  ipcMain.on(channels.state.get, (_event, { source, payload }) => {
+    const data = (payload.pathToProperty)
+      ? deepFind(currentState, payload.pathToProperty, true)
       : currentState;
 
     const win = deepFind(currentState, `_windows.refs.${source.id}`);
 
     if (win) {
-      win.ref.webContents.send(returnChannel, data);
+      win.ref.webContents.send(payload.returnChannel, data);
     }
   });
 

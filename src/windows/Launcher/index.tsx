@@ -6,7 +6,8 @@ import channels from '@constants/channels';
 import windowTypes from '@constants/windowTypes';
 
 const Launcher = ({ id }: { id: string }) => {
-  const [dispatchCount, setDispatchCount] = useState(0);
+  const [value]: any = storeClient.useStore(`_windows.refs.${windowClient.getWindowProperties().id}`);
+  const [stateTree]: any = storeClient.useStore();
 
   const handleClick = (type: string) => {
     windowClient.open({
@@ -21,9 +22,16 @@ const Launcher = ({ id }: { id: string }) => {
     });
   }
 
-  const handleGetClick = async () => {
-    const result = await storeClient.get('_windows.refs');
+  useEffect(() => {
+    console.log('value', value);
+  }, [value]);
 
+  useEffect(() => {
+    console.log('stateTree', stateTree);
+  }, [stateTree]);
+
+  const handleGetClick = async () => {
+    const result = await storeClient.get();
     console.log(result);
   }
 
@@ -35,34 +43,12 @@ const Launcher = ({ id }: { id: string }) => {
     })
   }
 
-  useEffect(() => {
-    storeClient.subscribe({
-      source: { id },
-      payload: {
-        channel: channels.state.listen,
-        subscribe: ['windows', 'refs']
-      }
-    });
-  }, []);
-
-  function increment() {
-    setDispatchCount(dispatchCount + 1)
-  }
-
-  useEffect(() => {
-
-    const listener = ipcRenderer.on(channels.state.listen, increment);
-    return () => {
-      ipcRenderer.removeListener(channels.state.listen, increment);
-    }
-  }, [dispatchCount]);
-
   return (
     <>
       <h1>Launcher</h1>
       <h5>{ id }</h5>
       <br />
-      <div style={{backgroundColor: '#e5e5e5', padding: '10px 5px'}}>{ dispatchCount }</div>
+        <div style={{backgroundColor: '#e5e5e5', padding: '10px 5px'}}></div>
       <br />
       <button onClick={() => handleClick(windowTypes.devTools)}>DevTools</button>
       <button onClick={() => handleClick(windowTypes.launcher)}>Launcher</button>

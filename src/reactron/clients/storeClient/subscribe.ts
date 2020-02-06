@@ -1,23 +1,29 @@
 import { ipcRenderer } from 'electron';
+
+import { windowClient } from '@clients/index';
 import channels from '@constants/channels';
 
-import { Source } from '~types/ipc';
+const subscribe = (returnChannel: string, pathToProperty?: string) => {
+  const { id: windowId } = windowClient.getWindowProperties();
 
-interface Payload {
-  channel: string,
-  subscribe: string[]
-}
+  if (!windowId) throw new Error(`%NO_WINDOW_ID_PLACEHOLDER%`);
+  if (!returnChannel) throw new Error(`%NO_RETURN_CHANNEL_PLACEHOLDER%`);
+  if (!pathToProperty) console.warn(`%NO_PATH_SPECIFIED_PLACEHOLDER%`);
 
-interface Props {
-  source: Source,
-  payload: Payload
-}
-
-const subscribe = ({ source, payload }: Props) => {
   ipcRenderer.send(channels.state.subscribe, {
-    source,
-    payload
+    source: {
+      id: windowId
+    },
+    payload: {
+      returnChannel,
+      pathToProperty
+    }
   });
+
+  return () => {
+    // send unsubscribe message to main
+    console.log('unsubscribe')
+  };
 }
 
 export default subscribe;
