@@ -9,6 +9,7 @@ export interface Listener {
   target: { id: string },
   pathToProperty: string | undefined,
   returnChannel: string
+  previousValue?: any
 }
 
 export interface ReducerMap {

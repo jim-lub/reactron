@@ -1,7 +1,7 @@
 import { ipcMain } from 'electron';
 import log from '@main/lib/log';
 import channels from '@constants/channels';
-import deepFind from './utils/deepFind';
+import {  deepFind, shallowCompare } from './utils';
 
 import { Action, Listener, Reducer, State, StoreFn } from '~types/store';
 
@@ -36,12 +36,12 @@ const createStore = (reducer: Reducer) => {
     const { returnChannel, pathToProperty } = payload;
 
     const win = deepFind(currentState, `_windows.refs.${source.id}`);
-    const data = (pathToProperty)
+    const value = (pathToProperty)
       ? deepFind(currentState, pathToProperty)
       : currentState;
 
     if (win) {
-      win.ref.webContents.send(returnChannel, data);
+      win.ref.webContents.send(returnChannel, value);
     }
   }
 
@@ -53,21 +53,22 @@ const createStore = (reducer: Reducer) => {
   function subscribe({ source, payload }: StoreFn.Subscribe) {
     const { returnChannel, pathToProperty } = payload;
 
+    const win = deepFind(currentState, `_windows.refs.${source.id}`);
+    const value = (pathToProperty)
+      ? deepFind(currentState, pathToProperty)
+      : currentState;
+
     listeners.push({
       target: {
         id: source.id
       },
       pathToProperty,
-      returnChannel
+      returnChannel,
+      previousValue: value
     });
 
-    const win = deepFind(currentState, `_windows.refs.${source.id}`);
-    const data = (pathToProperty)
-      ? deepFind(currentState, pathToProperty)
-      : currentState;
-
     if (win) {
-      win.ref.webContents.send(returnChannel, data);
+      win.ref.webContents.send(returnChannel, value);
     }
   }
 
@@ -81,24 +82,35 @@ const createStore = (reducer: Reducer) => {
   }
 
   /**
-  * getState()
-  * ...
-  *
+  * publish()
+  * This function will loop over the `listeners` array and does a shallow compare
+  * between the previous send value and the current value. If the data has changed
+  * the publisher will try to send the new value to the renderer window. If the
+  * reference to the window doesnt't exist the listener will be removed from the
+  * array.
   **/
   function publish() {
-    const listenersClone = listeners.filter(({ target, pathToProperty, returnChannel }: Listener, index) => {
+    const listenersClone = listeners.map(({ target, pathToProperty, returnChannel, previousValue }: Listener) => {
+
       const win = deepFind(currentState, `_windows.refs.${target.id}`);
-      const data = (pathToProperty)
+      const currentValue = (pathToProperty)
         ? deepFind(currentState, pathToProperty)
         : currentState;
+      const untouched = shallowCompare(previousValue, currentValue);
 
-      if (win) {
+      if (win && !untouched) {
         log.app('info', 'Sending data to ' + target.id + ' on channel ' + returnChannel );
-        win.ref.webContents.send(returnChannel, data);
+        win.ref.webContents.send(returnChannel, currentValue);
       }
 
-      return (win) ? true : false;
-    });
+      return {
+        target,
+        pathToProperty,
+        returnChannel,
+        previousValue: (!untouched) ? currentValue : previousValue,
+        removeListener: (!win) ? true : false
+      }
+    }).filter(({ removeListener }) => !removeListener);
 
     listeners = listenersClone;
   }
