@@ -1,8 +1,8 @@
-Currently rewriting the entire codebase to be an electron app.
+![alt text](https://raw.githubusercontent.com/jim-lub/reactron/master/resources/icon.png)
 
 # Reactron: An Electron + React extension
 ```
-*Note: Reactron is still in an early development stage and therefor not fit for production.*
+Note: Reactron is still in an early development stage and therefor not fit for production.
 ```
 
 The Reactron project is an attempt to simplify the creation of Desktop applications
