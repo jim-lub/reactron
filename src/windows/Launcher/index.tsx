@@ -40,7 +40,7 @@ const Launcher = () => {
   }
 
   return (
-    <>
+    <div>
       <h1>Launcher</h1>
       <h5>{ windowId }</h5>
       <br />
@@ -50,7 +50,7 @@ const Launcher = () => {
       <button onClick={() => handleClick(windowTypes.launcher)}>Launcher</button>
       <button onClick={listChannels}>Log Channels</button>
       <button onClick={handleGetClick}>Get</button>
-    </>
+    </div>
   )
 }
 
