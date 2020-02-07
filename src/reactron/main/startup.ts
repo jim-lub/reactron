@@ -2,12 +2,13 @@ import { app } from 'electron';
 
 import log from '@main/lib/log';
 import createWindow from '@main/state/windows/operations/createWindow';
-import windowTypes from '@constants/windowTypes';
+import { types as windowTypes } from 'windows';
 
 import '@main/store';
 import '@main/state/windows';
 
 const initialize = () => {
+  console.log(windowTypes)
   createWindow({
     source: { id: 'initial' },
     payload: {
