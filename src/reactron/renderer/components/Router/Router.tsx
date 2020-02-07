@@ -11,7 +11,7 @@ const Router = () => {
   if (!windows[windowType].component) throw new Error(`%WINDOW_NO_COMPONENT_PLACEHOLDER%`);
 
   return (
-    <div style={{height: '100%', width: '100%', padding: 10, border: 'solid 10px #ddf542'}}>
+    <div style={{height: '100%', width: '100%'}}>
       <Suspense fallback={<div>Loading...</div>}>
         {
           Object.entries(windows).map(([type, { component: Component, ...rest }]) => (
