@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { storeClient, windowClient } from '@clients/index';
-import { getCurrentWindowId } from '@renderer/lib/utils';
 
 interface Props {
   id: string,
@@ -8,7 +7,7 @@ interface Props {
 }
 
 const WindowList = () => {
-  const [windowsObj]: any = storeClient.useStore(`_windows.refs`);
+  const [windowsObj, unsubscribe]: any = storeClient.useStore(`_windows.refs`);
   const [windowList, setWindowList] = useState<Array<Props>>([]);
   const { id: windowId } = windowClient.getWindowProperties();
 
@@ -42,6 +41,7 @@ const WindowList = () => {
     <>
       <div>
         <button onClick={handleRefresh}>Refresh</button>
+        <button onClick={unsubscribe}>Unsubscribe</button>
       </div>
       <ul>
         {

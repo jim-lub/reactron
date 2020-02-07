@@ -8,7 +8,7 @@ export interface Action {
 export interface Listener {
   target: { id: string },
   pathToProperty: string | undefined,
-  returnChannel: string
+  listenerChannel: string
   previousValue?: any
 }
 
@@ -35,7 +35,7 @@ export namespace StoreFn {
     },
     payload: {
       pathToProperty?: string,
-      returnChannel: string
+      listenerChannel: string
     }
   }
 
@@ -44,7 +44,7 @@ export namespace StoreFn {
       id: string
     },
     payload: {
-      type: string
+      listenerChannel: string
     }
   }
 
@@ -54,7 +54,7 @@ export namespace StoreFn {
     },
     payload: {
       pathToProperty?: string,
-      returnChannel: string
+      listenerChannel: string
     }
   }
 }

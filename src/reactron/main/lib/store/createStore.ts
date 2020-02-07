@@ -3,7 +3,7 @@ import log from '@main/lib/log';
 import channels from '@constants/channels';
 import {  deepFind, shallowCompare } from './utils';
 
-import { Action, Listener, Reducer, State, StoreFn } from '~types/store';
+import { Listener, Reducer, State, StoreFn } from '~types/store';
 
 const createStore = (reducer: Reducer) => {
   let currentState: State = {};
@@ -29,11 +29,13 @@ const createStore = (reducer: Reducer) => {
 
   /**
   * get()
-  * ...
-  *
+  * This function can be used to get a value from the store without the hassle
+  * of subscribing and unsubscribing. Once the value is retrieved it will be send
+  * to the renderer. Tip: use an ipcRenderer.once() on the receiving end to auto
+  * remove the listener once the value is received.
   **/
   function get({ source, payload }: StoreFn.Get) {
-    const { returnChannel, pathToProperty } = payload;
+    const { listenerChannel, pathToProperty } = payload;
 
     const win = deepFind(currentState, `_windows.refs.${source.id}`);
     const value = (pathToProperty)
@@ -41,17 +43,16 @@ const createStore = (reducer: Reducer) => {
       : currentState;
 
     if (win) {
-      win.ref.webContents.send(returnChannel, value);
+      win.ref.webContents.send(listenerChannel, value);
     }
   }
 
   /**
   * subscribe()
-  * ...
-  *
+  * Use this function to setup a listener.
   **/
   function subscribe({ source, payload }: StoreFn.Subscribe) {
-    const { returnChannel, pathToProperty } = payload;
+    const { listenerChannel, pathToProperty } = payload;
 
     const win = deepFind(currentState, `_windows.refs.${source.id}`);
     const value = (pathToProperty)
@@ -63,22 +64,27 @@ const createStore = (reducer: Reducer) => {
         id: source.id
       },
       pathToProperty,
-      returnChannel,
+      listenerChannel,
       previousValue: value
     });
 
     if (win) {
-      win.ref.webContents.send(returnChannel, value);
+      win.ref.webContents.send(listenerChannel, value);
     }
   }
 
   /**
   * unsubscribe()
-  * ...
-  *
+  * Call this function to remove listener(s) from the `listeners` array. It will
+  * remove all listeners matching the `windowId` and `listenerChannel`. This can
+  * cause side effects if you re-use the same listenerChannel, so it's advised
+  * to generate unique channel names when working with dynamic content.
   **/
   function unsubscribe({ source, payload }: StoreFn.Unsubscribe) {
-    console.log(`unsubscribe ${source.id}: '${payload.type}'`);
+    listeners = listeners.filter(({ target, listenerChannel }) =>
+      !(target.id === source.id) &&
+      !(listenerChannel === payload.listenerChannel)
+    );
   }
 
   /**
@@ -90,7 +96,7 @@ const createStore = (reducer: Reducer) => {
   * array.
   **/
   function publish() {
-    const listenersClone = listeners.map(({ target, pathToProperty, returnChannel, previousValue }: Listener) => {
+    const listenersClone = listeners.map(({ target, pathToProperty, listenerChannel, previousValue }: Listener) => {
 
       const win = deepFind(currentState, `_windows.refs.${target.id}`);
       const currentValue = (pathToProperty)
@@ -99,14 +105,14 @@ const createStore = (reducer: Reducer) => {
       const untouched = shallowCompare(previousValue, currentValue);
 
       if (win && !untouched) {
-        log.app('info', 'Sending data to ' + target.id + ' on channel ' + returnChannel );
-        win.ref.webContents.send(returnChannel, currentValue);
+        log.app('info', 'Sending data to ' + target.id + ' on channel ' + listenerChannel );
+        win.ref.webContents.send(listenerChannel, currentValue);
       }
 
       return {
         target,
         pathToProperty,
-        returnChannel,
+        listenerChannel,
         previousValue: (!untouched) ? currentValue : previousValue,
         removeListener: (!win) ? true : false
       }
@@ -117,8 +123,7 @@ const createStore = (reducer: Reducer) => {
 
   /**
   * getState()
-  * ...
-  *
+  * Returns the current state.
   **/
   function getState() {
     return currentState;
@@ -134,6 +139,7 @@ const createStore = (reducer: Reducer) => {
   ipcMain.on(channels.store.subscribe, (_event, args) => subscribe(args));
   ipcMain.on(channels.store.unsubscribe, (_event, args) => unsubscribe(args));
 
+  // Perform an dispatch to setup the initial state specified in the reducers
   dispatch({ type: 'init', payload: {} });
 
   return {

@@ -6,7 +6,7 @@ import channels from '@constants/channels';
 
 const get = (pathToProperty?: string) => new Promise((resolve) => {
   const { id: windowId } = windowClient.getWindowProperties();
-  const returnChannel = `store:listen-once:${ uuid() }`;
+  const listenerChannel = `store:listen-once:${ uuid() }`;
 
   if (!windowId) throw new Error(`%NO_WINDOW_ID_PLACEHOLDER%`);
   if (!pathToProperty) console.warn(`%NO_PATH_SPECIFIED_PLACEHOLDER%`);
@@ -16,12 +16,12 @@ const get = (pathToProperty?: string) => new Promise((resolve) => {
       id: windowId
     },
     payload: {
-      returnChannel,
+      listenerChannel,
       pathToProperty
     },
   });
 
-  ipcRenderer.once(returnChannel, (_event, result) => resolve(result));
+  ipcRenderer.once(listenerChannel, (_event, result) => resolve(result));
 });
 
 export default get;
