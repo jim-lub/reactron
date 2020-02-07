@@ -1,0 +1,41 @@
+@import '../../css/colors.module';
+
+.container {
+  display: flex;
+  flex-flow: nowrap;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  background-color: $grey-100;
+}
+
+%tab {
+  flex: 1 1 auto;
+  max-width: 100px;
+  padding: 8px 15px;
+  text-align: center;
+  font-size: 11px;
+  border-bottom: solid 1px $grey-400;
+  color: $grey-500;
+}
+
+.tab {
+  @extend %tab;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $grey-200;
+    color: $grey-700;
+  }
+}
+
+.tabActive {
+  @extend %tab;
+  border-bottom: solid 2px $blue-300;
+  color: $grey-900;
+}
+
+.tabFiller {
+  @extend %tab;
+  max-width: none;
+}

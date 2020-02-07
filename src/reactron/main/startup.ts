@@ -10,9 +10,18 @@ const initialize = () => {
   createWindow({
     source: { id: 'initial' },
     payload: {
-      type: 'reactron:window:launcher',
+      type: 'reactron:window:devTools',
       width: 1200,
       height: 1000
+    }
+  });
+
+  createWindow({
+    source: { id: 'initial' },
+    payload: {
+      type: 'reactron:window:launcher',
+      width: 400,
+      height: 400
     }
   });
 }

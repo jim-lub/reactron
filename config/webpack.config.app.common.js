@@ -43,9 +43,9 @@ module.exports = merge(webpackConfig, {
           {
             loader: "file-loader",
             options: {
-              name: "[name].[hash].[ext]",
+              name: "[hash].[ext]",
               outputPath: "static/images",
-              esModule: false, // temp fix for wrong image src in html file
+              esModule: false,
           }
         }],
       },
