@@ -1,0 +1,29 @@
+@font-face {
+  font-family: KanitLight;
+  src: url('../fonts/Kanit/Kanit-Light.ttf');
+}
+
+@font-face {
+  font-family: Kanit;
+  src: url('../fonts/Kanit/Kanit-Regular.ttf');
+}
+
+@font-face {
+  font-family: KanitSemiBold;
+  src: url('../fonts/Kanit/Kanit-SemiBold.ttf');
+}
+
+@font-face {
+  font-family: OpenSansLight;
+  src: url('../fonts/Open_Sans/OpenSans-Light.ttf');
+}
+
+@font-face {
+  font-family: OpenSans;
+  src: url('../fonts/Open_Sans/OpenSans-Regular.ttf');
+}
+
+@font-face {
+  font-family: OpenSansSemiBold;
+  src: url('../fonts/Open_Sans/OpenSans-SemiBold.ttf');
+}

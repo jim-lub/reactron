@@ -51,8 +51,11 @@ const WindowTools = () => {
         </div>
 
         <div className={styles.dataColumn}>
+          <div className={styles.displayName}><h4>{ displayName }</h4></div>
           <div className={styles.id}>{ id }</div>
-          <div className={styles.displayName}>{ displayName }</div>
+          <div>
+            Putting a text <span style={{fontWeight: 'bold'}}>here</span> just to <span style={{fontStyle: 'italic'}}>test</span> things out.
+          </div>
         </div>
 
         <div className={styles.notificationsColumn}>
@@ -70,15 +73,3 @@ const WindowTools = () => {
 }
 
 export default WindowTools;
-
-// <div className={styles.listUpperContent}>
-//   <div className={styles.notificationBubble}>5</div>
-//   <div className={styles.displayName}>{ displayName }</div>
-//   <div className={styles.id}>{ id }</div>
-//   <div className={styles.actions}>
-//     <CloseIcon className={styles.icon}/>
-//     <MaximizeIcon className={styles.icon}/>
-//     <UnMaximizeIcon className={styles.icon}/>
-//     <MinimizeIcon className={styles.icon}/>
-//   </div>
-// </div>

@@ -2,7 +2,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font: 12px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  font-family: OpenSans;
 }
 
 html, body {
@@ -16,26 +16,31 @@ span {
 }
 
 h1 {
+  font-family: Kanit;
   font-size: 28px;
   color: inherit;
 }
 
 h2 {
+  font-family: Kanit;
   font-size: 24px;
   color: inherit;
 }
 
 h3 {
+  font-family: Kanit;
   font-size: 20px;
   color: inherit;
 }
 
 h4 {
+  font-family: Kanit;
   font-size: 18px;
   color: inherit;
 }
 
 h5 {
+  font-family: Kanit;
   font-size: 16px;
   color: inherit;
 }

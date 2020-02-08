@@ -51,13 +51,24 @@ module.exports = merge(webpackConfig, {
       },
 
       {
+        test: /\.(woff|woff2|ttf|eot)$/,
+        use: [{
+          loader: 'file-loader',
+          options: {
+            esModule: false,
+            outputPath:  'static/fonts'
+          }
+        }]
+      },
+
+      {
         test: /\.(png|jpg|gif)$/,
         use: {
           loader: "file-loader",
           options: {
             name: "[name].[hash].[ext]",
             outputPath: "static/images",
-            esModule: false, // temp fix for wrong image src in html file
+            esModule: false,
           }
         }
       }
