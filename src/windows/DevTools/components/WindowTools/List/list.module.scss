@@ -1,0 +1,100 @@
+@import '../../../css/colors.module';
+
+.wrapper {
+  -webkit-user-select: none;
+  height: 100%;
+  width: 100%;
+
+  &>li {
+
+  }
+}
+
+.itemContainer {
+  margin: 5px;
+  background-color: $white;
+  border: solid 1px $grey-400;
+
+  .header {
+    padding: 10px 20px;
+    font-family: Kanit;
+    font-size: 18px;
+  }
+}
+
+.tabsContainer {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+  background-color: $grey-050;
+  list-style: none;
+
+  li {
+    flex: 10 1 auto;
+    max-width: 100px;
+    padding: 7px 10px 7px 10px;
+    border-top: solid 1px $grey-400;
+    border-right: solid 1px $grey-300;
+    font-size: 10px;
+    text-align: center;
+    cursor: pointer;
+
+    &.isOpen {
+      padding: 6px 10px 7px 10px;
+      border-top: solid 2px $blue-100;
+    }
+
+    &:hover {
+      background-color: $grey-200;
+    }
+
+    &.filler {
+      flex: 1 1 auto;
+      max-width: none;
+      border-right: none;
+      cursor: default;
+    }
+
+    &.filler:hover {
+      background-color: $grey-050;
+    }
+  }
+}
+
+.actionsExtensionContainer {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  border-top: solid 1px $grey-400;
+  list-style: none;
+
+  li {
+    display: flex;
+    margin: 5px;
+    padding: 5px 10px;
+    color: $grey-600;
+    fill: $grey-600;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $grey-100;
+      border-radius: 2px;
+      color: $grey-900;
+      fill: $grey-900;
+    }
+
+    .iconWrapper {
+      .icon {
+        width: 12px;
+        height: 12px;
+        fill: inherit;
+      }
+    }
+
+    .nameWrapper {
+      padding-left: 10px;
+      font-size: 12px;
+      color: inherit;
+    }
+  }
+}
