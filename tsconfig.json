@@ -4,7 +4,9 @@
     "paths": {
       "reactron": ["internals/index.ts"],
       "@assets/*": ["internals/assets/*"],
+      "@clients": ["internals/clients/index"],
       "@clients/*": ["internals/clients/*"],
+      "@components": ["internals/components/index"],
       "@components/*": ["internals/components/*"],
       "@constants/*": ["internals/constants/*"],
       "@lib/*": ["internals/lib/*"],

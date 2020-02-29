@@ -2,14 +2,14 @@ import { State, Action } from '~types/store.types';
 import { Payload } from './payload.types';
 
 export const addWindowRef = (state: State, action: Action<Payload.AddWindowRef>) => {
-  const { id, type, alias, ref } = action.payload;
+  const { id, containerType, alias, ref } = action.payload;
 
   return {
     ...state,
     refs: {
       ...state.refs,
       [id]: {
-        type,
+        containerType,
         alias,
         ref
       }

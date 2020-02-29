@@ -1,7 +1,8 @@
 export namespace Payload {
+
   export interface AddWindowRef {
     id: string,
-    type: string,
+    containerType: string,
     alias: string,
     ref: Electron.BrowserWindow
   }
@@ -9,4 +10,5 @@ export namespace Payload {
   export interface RemoveWindowRef {
     id: string
   }
+
 }

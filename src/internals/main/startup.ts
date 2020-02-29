@@ -9,7 +9,7 @@ const initialize = () => {
   createWindow({
     source: { id: 'initial' },
     payload: {
-      type: 'reactron:window:devTools',
+      containerType: 'container:Example',
       width: 1200,
       height: 1000
     }

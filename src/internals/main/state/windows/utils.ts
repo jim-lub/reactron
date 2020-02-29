@@ -3,12 +3,12 @@ import * as isDev from 'electron-is-dev';
 
 interface Props {
   id: string,
-  type: string,
+  containerType: string,
   windowRef: Electron.BrowserWindow,
 }
 
-export const loadContainer = ({ id, type, windowRef }: Props) => {
-  const urlParams = `?id=${id}&type=${type}`;
+export const loadContainer = ({ id, containerType, windowRef }: Props) => {
+  const urlParams = `?id=${id}&containerType=${containerType}`;
 
   windowRef.loadURL(
     (isDev)

@@ -11,13 +11,13 @@ interface Props {
     id: string
   },
   payload: {
-    type: string,
+    containerType: string,
     width: number,
     height: number
   }
 }
 
-export const createWindow = ({ payload: { type, width, height } }: Props) => {
+export const createWindow = ({ payload: { containerType, width, height } }: Props) => {
   const id = uuid();
 
   const windowRef = new BrowserWindow({
@@ -31,9 +31,9 @@ export const createWindow = ({ payload: { type, width, height } }: Props) => {
 
   windowRef.webContents.openDevTools();
 
-  utils.loadContainer({ id, type, windowRef });
+  utils.loadContainer({ id, containerType, windowRef });
 
-  dispatch( actions.addWindowRef({ id, type, alias: '', ref: windowRef }) );
+  dispatch( actions.addWindowRef({ id, containerType, alias: '', ref: windowRef }) );
 
   windowRef.on('closed', () => {
     dispatch( actions.removeWindowRef({ id }) );

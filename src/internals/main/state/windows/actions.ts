@@ -1,11 +1,11 @@
 import actionTypes from './actionTypes';
 import { Payload } from './payload.types';
 
-export const addWindowRef = ({ id, type, alias, ref }: Payload.AddWindowRef) => ({
+export const addWindowRef = ({ id, containerType, alias, ref }: Payload.AddWindowRef) => ({
   type: actionTypes.addWindowRef,
   payload: {
     id,
-    type,
+    containerType,
     alias,
     ref,
   }
