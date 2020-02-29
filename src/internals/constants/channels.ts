@@ -10,10 +10,10 @@ const channels = {
     minimize          : "window:minimize",
     maximize          : "window:maximize",
   },
-  
+
   store: {
+    dispatch          : "store:dispatch",
     get               : "store:get",
-    listen            : "store:listen",
     subscribe         : "store:subscribe",
     unsubscribe       : "store:unsubscribe"
   }

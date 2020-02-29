@@ -17,9 +17,7 @@ const createStore = (reducer: Reducer<any>) => {
     if (!type) throw new Error(`%NO_TYPE_SPECIFIED_PLACEHOLDER%`);
     if (!payload) console.warn(`%NO_PAYLOAD_PLACEHOLDER%`);
 
-    console.log(currentState)
     currentState = reducer(currentState, { type, payload });
-    console.log(currentState)
 
     publish();
   }
@@ -78,6 +76,10 @@ const createStore = (reducer: Reducer<any>) => {
   * to generate unique channel names when working with dynamic content.
   **/
   function unsubscribe({ source, payload }: Store.Unsubscribe) {
+    if (payload.listenerChannel === '___EVERY___') {
+      // delete all subscribtions for window
+    }
+
     listeners = listeners.filter(({ target, listenerChannel }) =>
       !(target.id === source.id) &&
       !(listenerChannel === payload.listenerChannel)
@@ -128,9 +130,9 @@ const createStore = (reducer: Reducer<any>) => {
 
   /**
   * eventListeners
-  * ...
-  *
+  * Setup event listeners to allow usage of store functions from outside the main process.
   **/
+  ipcMain.on(channels.store.dispatch, (_event, args) => dispatch(args));
   ipcMain.on(channels.store.get, (_event, args) => get(args));
   ipcMain.on(channels.store.subscribe, (_event, args) => subscribe(args));
   ipcMain.on(channels.store.unsubscribe, (_event, args) => unsubscribe(args));
@@ -138,6 +140,7 @@ const createStore = (reducer: Reducer<any>) => {
   // Dispatching an action to setup initial state tree
   dispatch({ type: 'INITIALIZE', payload: {} });
 
+  // Export functions to be used 
   return {
     dispatch,
     subscribe,

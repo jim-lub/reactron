@@ -1,23 +1,27 @@
-const { app, BrowserWindow } = require('electron');
-const isDev = require('electron-is-dev');
-
 import '@main/store';
-// import '@main/state/windows';
+import '@main/state/windows';
 
-function createWindow () {
-  // Create the browser window.
-  let win = new BrowserWindow({
-    width: 800,
-    height: 600,
-    webPreferences: {
-      nodeIntegration: true
+import { app } from 'electron';
+
+import { createWindow } from '@main/state/windows';
+
+const initialize = () => {
+  createWindow({
+    source: { id: 'initial' },
+    payload: {
+      type: 'reactron:window:devTools',
+      width: 1200,
+      height: 1000
     }
-  })
-
-  // and load the index.html of the app.
-  win.loadURL(
-    `http://localhost:3000/`
-  )
+  });
 }
 
-app.on('ready', createWindow)
+app.on('ready', () => {
+  initialize();
+});
+
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
+    app.quit();
+  }
+});
