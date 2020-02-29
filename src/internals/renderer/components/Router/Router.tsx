@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 
 import { windowClient } from '@clients';
 
-import Containers, { ContainerTypes } from 'containers';
+import Containers from 'containers';
 
 const Router = () => {
   const { containerType } = windowClient.getWindowProperties();

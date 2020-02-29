@@ -4,8 +4,8 @@ const DevTools = React.lazy(() => import('./DevTools'));
 const Example = React.lazy(() => import('./Example'));
 
 export const ContainerTypes = {
-  DevTools          : 'container:DevTools',
-  Example           : 'container:Example'
+  DevTools : 'container:DevTools',
+  Example  : 'container:Example'
 }
 
 export default ({
