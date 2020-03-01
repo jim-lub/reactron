@@ -6,15 +6,41 @@ import { doSomething } from 'shared/state/example';
 import Containers, { ContainerTypes } from 'containers';
 
 const Example = () => {
+  const [value] = storeClient.useStore('__.windows.refs');
+
+  useEffect(() => {
+    // console.clear();
+    console.log(value)
+  }, [value]);
+
+  const renderWindowRefs = (value: { [key: string]: { alias: string, bounds: { x: string, y: string, width: string, height: string } } }) => Object.entries(value).map(([id, { alias, bounds }]) => {
+    return (
+      <div key={id} style={{display: 'flex', backgroundColor: '#ffffff', border: 'solid 1px #e5e5e5', margin: 5, padding: 5}}>
+        <div style={{flex: '1 1 auto'}}>{ id }</div>
+        <div style={{flex: '1 1 auto'}}>{ alias }</div>
+        <div style={{flex: '1 1 auto'}}>{ bounds.x }|{ bounds.y }|{ bounds.width }|{ bounds.height }</div>
+      </div>
+    )
+  });
+
+  return (
+    <div>
+      { (value) ? renderWindowRefs(value) : null }
+      <button>doSomething</button>
+    </div>
+  )
+}
+
+const Example2 = () => {
   const [selectValue, setSelectValue] = useState('');
   const [widthValue, setWidthValue] = useState(640);
   const [heightValue, setHeightValue] = useState(480);
-  const [value] = storeClient.useStore('example');
+  const [value] = storeClient.useStore('__.windows.refs');
   // const { id } = windowClient.getStaticWindowProperties();
 
   useEffect(() => {
     console.log(value)
-  }, [value])
+  }, [value]);
 
   const handleWidthChange = (e: any) => {
     console.log(e.target.value)

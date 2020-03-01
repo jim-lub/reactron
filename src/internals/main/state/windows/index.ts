@@ -14,6 +14,7 @@ const initialState = {
 export default createReducer(initialState)({
   [ actionTypes.addWindowRef ]: (state, action) => reducers.addWindowRef(state, action),
   [ actionTypes.removeWindowRef ]: (state, action) => reducers.removeWindowRef(state, action),
+  [ actionTypes.setWindowProps ]: (state, action) => reducers.setWindowProps(state, action),
 });
 
 

@@ -2,7 +2,7 @@ import { State, Action } from '~types/store.types';
 import { Payload } from './payload.types';
 
 export const addWindowRef = (state: State, action: Action<Payload.AddWindowRef>) => {
-  const { id, containerType, alias, ref } = action.payload;
+  const { id, containerType, alias, ref, bounds, flags } = action.payload;
 
   return {
     ...state,
@@ -11,7 +11,9 @@ export const addWindowRef = (state: State, action: Action<Payload.AddWindowRef>)
       [id]: {
         containerType,
         alias,
-        ref
+        ref,
+        bounds,
+        flags
       }
     }
   }
@@ -31,5 +33,23 @@ export const removeWindowRef = (state: State, action: Action<Payload.RemoveWindo
       }
       return obj;
     }, {})
+  }
+}
+
+export const setWindowProps= (state: State, action: Action<Payload.SetWindowProps>) => {
+  const { id, bounds, flags } = action.payload;
+
+  console.log(flags)
+
+  return {
+    ...state,
+    refs: {
+      ...state.refs,
+      [id]: {
+        ...state.refs[id],
+        bounds,
+        flags
+      }
+    }
   }
 }
