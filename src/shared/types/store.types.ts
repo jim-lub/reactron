@@ -1,6 +1,6 @@
-export interface Action<Props> {
+export interface Action<Payload> {
   type: string,
-  payload: Props
+  payload: Payload
 }
 
 export interface Listener {
@@ -58,4 +58,4 @@ export namespace Store {
 
 }
 
-export type Reducer<ActionProps> = (state: State, action: Action<ActionProps>) => State;
+export type Reducer<Payload> = (state: State, action: Action<Payload>) => State;

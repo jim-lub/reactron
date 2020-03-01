@@ -4,7 +4,7 @@ import { windowClient } from '@clients';
 import channels from '@constants/channels';
 
 const subscribe = (listenerChannel: string, pathToProperty?: string) => {
-  const { id: windowId } = windowClient.getWindowProperties();
+  const { id: windowId } = windowClient.getStaticWindowProperties();
 
   if (!windowId) throw new Error(`%NO_WINDOW_ID_PLACEHOLDER%`);
   if (!listenerChannel) throw new Error(`%NO_LISTENER_CHANNEL_PLACEHOLDER%`);

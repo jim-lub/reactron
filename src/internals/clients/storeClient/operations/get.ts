@@ -5,7 +5,7 @@ import { windowClient } from '@clients';
 import channels from '@constants/channels';
 
 const get = (pathToProperty?: string) => new Promise((resolve) => {
-  const { id: windowId } = windowClient.getWindowProperties();
+  const { id: windowId } = windowClient.getStaticWindowProperties();
   const listenerChannel = `store:listen-once:${ uuid() }`;
 
   if (!windowId) throw new Error(`%NO_WINDOW_ID_PLACEHOLDER%`);

@@ -1,6 +1,6 @@
 import { getUrlParams } from '@renderer/lib/utils';
 
-const getWindowProperties = () => {
+const getStaticWindowProperties = () => {
   const { id, containerType } = getUrlParams();
 
   return {
@@ -9,4 +9,4 @@ const getWindowProperties = () => {
   }
 }
 
-export default getWindowProperties;
+export default getStaticWindowProperties;

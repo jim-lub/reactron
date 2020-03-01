@@ -5,7 +5,7 @@ import { windowClient } from '@clients';
 import Containers from 'containers';
 
 const Router = () => {
-  const { containerType } = windowClient.getWindowProperties();
+  const { containerType } = windowClient.getStaticWindowProperties();
 
   if (!containerType) throw new Error(`%NO_WINDOW_TYPE_PLACEHOLDER%`);
   if (!Containers[containerType]) throw new Error(`%WINDOW_TYPE_NO_EXIST_PLACEHOLDER%`);
