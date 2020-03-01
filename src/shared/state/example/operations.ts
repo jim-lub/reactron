@@ -1,7 +1,7 @@
 import Reactron from 'reactron';
 
 import * as actions from './actions';
-import * as utils from './utils';
+// import * as utils from './utils';
 
 interface Props {
   number?: number,

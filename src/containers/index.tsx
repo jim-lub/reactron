@@ -1,7 +1,7 @@
 import React from 'react';
 
-const DevTools = React.lazy(() => import('./DevTools'));
-const Example = React.lazy(() => import('./Example'));
+const DevTools = React.lazy(() => import('./DevTools/views'));
+const Example = React.lazy(() => import('./Example/views'));
 
 export const ContainerTypes = {
   DevTools : 'container:DevTools',

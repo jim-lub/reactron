@@ -1,0 +1,25 @@
+@import "../../css/colors.module";
+@import "../../css/defaults";
+
+.wrapper {
+  @extend .container;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  border-bottom: solid 2px $tabs-color-one;
+}
+
+.select {
+  flex: 1 1 auto;
+}
+
+.input {
+  flex: 1 1 auto;
+  max-width: 50px;
+  text-align: center;
+}
+
+.button {
+  flex: 1 1 auto;
+  max-width: 100px;
+}
