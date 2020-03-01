@@ -1,8 +1,10 @@
 import { ipcMain } from 'electron';
-import channels from '@constants/channels';
+
+import log from '@main/lib/cli-logger';
 import {  deepFind, shallowCompare } from './utils';
 
 import { Listener, Reducer, State, Store } from '~types/store.types';
+import channels from '@constants/channels';
 
 const createStore = (reducer: Reducer<any>) => {
   let currentState: State = {};
@@ -13,10 +15,11 @@ const createStore = (reducer: Reducer<any>) => {
   * ...
   *
   **/
-  function dispatch({ type, payload }: Store.Dispatch) {
+  function dispatch({ source = { id: '@internal-main'}, type, payload = {} }: Store.Dispatch) {
     if (!type) throw new Error(`%NO_TYPE_SPECIFIED_PLACEHOLDER%`);
     if (!payload) console.warn(`%NO_PAYLOAD_PLACEHOLDER%`);
 
+    log.store(source, type, payload)
     currentState = reducer(currentState, { type, payload });
 
     publish();
@@ -140,7 +143,7 @@ const createStore = (reducer: Reducer<any>) => {
   // Dispatching an action to setup initial state tree
   dispatch({ type: 'INITIALIZE', payload: {} });
 
-  // Export functions to be used 
+  // Export functions to be used
   return {
     dispatch,
     subscribe,

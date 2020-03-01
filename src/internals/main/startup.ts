@@ -3,6 +3,7 @@ import '@main/state/windows';
 
 import { app } from 'electron';
 
+import log from '@main/lib/cli-logger';
 import { createWindow } from '@main/state/windows';
 
 const initialize = () => {
@@ -17,6 +18,8 @@ const initialize = () => {
 }
 
 app.on('ready', () => {
+  log.app('success', 'Application initialized.');
+  
   initialize();
 });
 

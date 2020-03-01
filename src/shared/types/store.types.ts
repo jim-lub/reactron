@@ -21,6 +21,9 @@ export interface State {
 export namespace Store {
 
   export interface Dispatch {
+    source?: {
+      id: string
+    },
     type: string,
     payload?: {
       [key: string]: any
