@@ -6,7 +6,7 @@ module.exports = merge(webpackConfig, {
   target: "electron-main",
 
   entry: {
-    app: path.resolve(__dirname, "..", "src", "reactron", "main", "startup.ts")
+    app: path.resolve(__dirname, "..", "src", "internals", "main", "startup.ts")
   },
 
   node: {

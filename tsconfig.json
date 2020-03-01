@@ -2,19 +2,22 @@
   "compilerOptions": {
     "baseUrl": "src",
     "paths": {
-      "reactron": ["reactron/index.ts"],
-      "@clients/*": ["reactron/clients/*"],
-      "@components/*": ["reactron/components/*"],
-      "@constants/*": ["reactron/constants/*"],
-      "@lib/*": ["reactron/lib/*"],
-      "@main/*": ["reactron/main/*"],
-      "@renderer/*": ["reactron/renderer/*"],
-      "@state/*": ["reactron/state/*"],
+      "reactron": ["internals/index.ts"],
+      "@assets/*": ["internals/assets/*"],
+      "@clients": ["internals/clients/index"],
+      "@clients/*": ["internals/clients/*"],
+      "@components": ["internals/components/index"],
+      "@components/*": ["internals/components/*"],
+      "@constants/*": ["internals/constants/*"],
+      "@lib/*": ["internals/lib/*"],
+      "@main/*": ["internals/main/*"],
+      "@renderer/*": ["internals/renderer/*"],
+      "@state/*": ["internals/state/*"],
 
       "~types/*": ["shared/types/*"],
 
       "shared/*": ["shared/*"],
-      "windows/*": ["windows/*"]
+      "containers/*": ["containers/*"]
     },
     "lib": [
       "dom",
