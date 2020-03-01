@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import { storeClient, windowClient } from '@clients';
+import { doSomething } from 'shared/state/example';
 
 import Containers, { ContainerTypes } from 'containers';
 
@@ -8,8 +9,8 @@ const Example = () => {
   const [selectValue, setSelectValue] = useState('');
   const [widthValue, setWidthValue] = useState(640);
   const [heightValue, setHeightValue] = useState(480);
-  const [value] = storeClient.useStore('');
-  const { id } = windowClient.getStaticWindowProperties();
+  const [value] = storeClient.useStore('example');
+  // const { id } = windowClient.getStaticWindowProperties();
 
   useEffect(() => {
     console.log(value)
@@ -60,7 +61,12 @@ const Example = () => {
         }
       </select>
 
-      <button onClick={handleSubmit} disabled={(selectValue.length === 0)}>Create</button>
+      <button onClick={handleSubmit} disabled={(selectValue.length === 0)}>Create</button><br /><br />
+
+      <button onClick={() => doSomething({ number: 500 })}>{ "doSomething({ number: 500 })" }</button>
+      <button onClick={() => doSomething({ string: 'banana' })}>{ "doSomething({ string: 'banana' })" }</button>
+      <button onClick={() => doSomething({ object: { fruit: 'banana '} })}>{ "doSomething({ object: { fruit: 'banana' } })" }</button>
+      <button onClick={() => doSomething({ array: ['banana', 'apple', 'orange'] })}>{ "doSomething({ array: ['banana', 'apple', orange] })" }</button>
     </div>
   )
 }
