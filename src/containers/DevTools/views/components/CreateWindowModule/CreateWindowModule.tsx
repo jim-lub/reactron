@@ -34,36 +34,54 @@ const CreateWindowModule = () => {
   });
 
   return (
-    <div className={styles.wrapper}>
-      <select
-        className={styles.select}
-        onChange={(e) => setSelection(e.target.value)}
-        value={selection}
-      >
-        {
-          renderSelectOptions()
-        }
-      </select>
+    <section className="section">
+      <div className="box">
+        <div className="level-left">
+          <div className="select">
+            <select
+              onChange={(e) => setSelection(e.target.value)}
+              value={selection}
+            >
+              {
+                renderSelectOptions()
+              }
+            </select>
+          </div>
 
-      <input
-        className={styles.input}
-        value={windowWidth}
-        onChange={(e) => setWindowWidth(e.target.value)}
-      />
+          <p className="control">
+            <input
+              className="input"
+              value={windowWidth}
+              onChange={(e) => setWindowWidth(e.target.value)}
+            />
+          </p>
 
-      <input
-        className={styles.input}
-        value={windowHeight}
-        onChange={(e) => setWindowHeight(e.target.value)}
-      />
+          <p className="control">
+            <input
+              className="input"
+              value={windowHeight}
+              onChange={(e) => setWindowHeight(e.target.value)}
+            />
+          </p>
+        </div>
 
-      <button
-        className={styles.button}
-        onClick={handleSubmit}
-      >
-        Open
-      </button>
-    </div>
+        <div className="level-right">
+          <button
+            type="button"
+            className="blue"
+            onClick={handleSubmit}
+          >
+            Create
+          </button>
+          <button
+            type="button"
+            onClick={handleSubmit}
+          >
+            Create
+          </button>
+        </div>
+      </div>
+    </section>
   )
 }
 

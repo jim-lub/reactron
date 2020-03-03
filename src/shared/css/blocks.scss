@@ -1,0 +1,35 @@
+:global {
+
+  .container {
+    margin: 10px;
+    padding: 10px;
+    background-color: $white;
+    border: solid 1px $grey-300;
+    border-radius: 3px;
+
+    &.alt {
+      background-color: $grey-050;
+    }
+
+    &.no-margin {
+      margin: 0px;
+    }
+  }
+
+  .flex-container {
+    @extend .container;
+    display: flex;
+    flex-flow: row nowrap;
+  }
+
+  .section {
+    padding: 10px;
+    background-color: $white;
+    border-bottom: solid 1px $grey-300;
+
+    &.alt {
+      background-color: $grey-050;
+    }
+  }
+
+}
