@@ -8,12 +8,13 @@ import * as operations from './operations';
 import * as reducers from './reducers';
 
 const initialState = {
-  refs: {}
+  instances: {}
 }
 
 export default createReducer(initialState)({
-  [ actionTypes.addWindowRef ]: (state, action) => reducers.addWindowRef(state, action),
-  [ actionTypes.removeWindowRef ]: (state, action) => reducers.removeWindowRef(state, action),
+  [ actionTypes.addWindowInstance ]: (state, action) => reducers.addWindowInstance(state, action),
+  [ actionTypes.removeWindowInstance ]: (state, action) => reducers.removeWindowInstance(state, action),
+  [ actionTypes.setWindowProps ]: (state, action) => reducers.setWindowProps(state, action),
 });
 
 
