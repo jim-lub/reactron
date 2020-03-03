@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
-import { storeClient, windowClient } from '@clients';
+import Reactron from 'reactron';
 import { doSomething } from 'shared/state/example';
 
 import Containers, { ContainerTypes } from 'containers';
 
 const Example = () => {
-  const [value] = storeClient.useStore('__.windows.refs');
+  const { storeClient, windowClient } = Reactron.clients;
+  const [value] = storeClient.useStore('__.windows.instances');
 
   useEffect(() => {
     // console.clear();

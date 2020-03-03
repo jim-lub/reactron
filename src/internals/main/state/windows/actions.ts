@@ -1,8 +1,8 @@
 import actionTypes from './actionTypes';
 import { Payload } from './payload.types';
 
-export const addWindowRef = ({ id, containerType, alias, ref, bounds, flags }: Payload.AddWindowRef) => ({
-  type: actionTypes.addWindowRef,
+export const addWindowInstance = ({ id, containerType, alias, ref, bounds, flags }: Payload.AddWindowInstance) => ({
+  type: actionTypes.addWindowInstance,
   payload: {
     id,
     containerType,
@@ -13,8 +13,8 @@ export const addWindowRef = ({ id, containerType, alias, ref, bounds, flags }: P
   }
 });
 
-export const removeWindowRef = ({ id }: Payload.RemoveWindowRef) => ({
-  type: actionTypes.removeWindowRef,
+export const removeWindowInstance = ({ id }: Payload.RemoveWindowInstance) => ({
+  type: actionTypes.removeWindowInstance,
   payload: {
     id
   }

@@ -35,7 +35,7 @@ const createStore = (reducer: Reducer<any>) => {
   function get({ source, payload }: Store.Get) {
     const { listenerChannel, pathToProperty } = payload;
 
-    const win = deepFind(currentState, `__.windows.refs.${source.id}`);
+    const win = deepFind(currentState, `__.windows.instances.${source.id}`);
     const value = (pathToProperty)
       ? deepFind(currentState, pathToProperty)
       : currentState;
@@ -52,7 +52,7 @@ const createStore = (reducer: Reducer<any>) => {
   function subscribe({ source, payload }: Store.Subscribe) {
     const { listenerChannel, pathToProperty } = payload;
 
-    const win = deepFind(currentState, `__.windows.refs.${source.id}`);
+    const win = deepFind(currentState, `__.windows.instances.${source.id}`);
     const value = (pathToProperty)
       ? deepFind(currentState, pathToProperty)
       : currentState;
@@ -100,7 +100,7 @@ const createStore = (reducer: Reducer<any>) => {
   function publish() {
     const listenersClone = listeners.map(({ target, pathToProperty, listenerChannel, previousValue }: Listener) => {
 
-      const win = deepFind(currentState, `__.windows.refs.${target.id}`);
+      const win = deepFind(currentState, `__.windows.instances.${target.id}`);
       const currentValue = (pathToProperty)
         ? deepFind(currentState, pathToProperty)
         : currentState;

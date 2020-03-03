@@ -34,7 +34,7 @@ export const createWindow = ({ payload: { containerType, width, height } }: Prop
 
   utils.loadContainer({ id, containerType, windowRef });
 
-  dispatch( actions.addWindowRef({
+  dispatch( actions.addWindowInstance({
     id,
     containerType,
     alias: '',
@@ -60,7 +60,7 @@ export const createWindow = ({ payload: { containerType, width, height } }: Prop
   windowRef.on('move', () => setWindowProps());
 
   windowRef.on('closed', () => {
-    dispatch( actions.removeWindowRef({ id }) );
+    dispatch( actions.removeWindowInstance({ id }) );
 
     unsubscribe({
       source: { id },

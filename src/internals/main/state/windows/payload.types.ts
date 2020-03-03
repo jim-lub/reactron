@@ -23,7 +23,7 @@ interface Flags {
 
 export namespace Payload {
 
-  export interface AddWindowRef {
+  export interface AddWindowInstance {
     id: string,
     containerType: string,
     alias: string,
@@ -32,7 +32,7 @@ export namespace Payload {
     flags: Flags
   }
 
-  export interface RemoveWindowRef {
+  export interface RemoveWindowInstance {
     id: string
   }
 

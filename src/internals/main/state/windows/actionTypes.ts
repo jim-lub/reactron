@@ -1,6 +1,6 @@
 enum ActionTypes {
-  addWindowRef          = "__:windows:addWindowRef",
-  removeWindowRef       = "__:windows:removeWindowRef",
+  addWindowInstance          = "__:windows:addWindowInstance",
+  removeWindowInstance       = "__:windows:removeWindowInstance",
 
   setWindowProps        = "__:windows:setWindowProps"
 }

@@ -1,13 +1,13 @@
 import { State, Action } from '~types/store.types';
 import { Payload } from './payload.types';
 
-export const addWindowRef = (state: State, action: Action<Payload.AddWindowRef>) => {
+export const addWindowInstance = (state: State, action: Action<Payload.AddWindowInstance>) => {
   const { id, containerType, alias, ref, bounds, flags } = action.payload;
 
   return {
     ...state,
-    refs: {
-      ...state.refs,
+    instances: {
+      ...state.instances,
       [id]: {
         containerType,
         alias,
@@ -19,12 +19,12 @@ export const addWindowRef = (state: State, action: Action<Payload.AddWindowRef>)
   }
 }
 
-export const removeWindowRef = (state: State, action: Action<Payload.RemoveWindowRef>) => {
+export const removeWindowInstance = (state: State, action: Action<Payload.RemoveWindowInstance>) => {
   const { id: target_id } = action.payload;
 
   return {
     ...state,
-    refs: Object.entries(state.refs).reduce((obj, [id, values]) => {
+    instances: Object.entries(state.refs).reduce((obj, [id, values]) => {
       if (id !== target_id) {
         obj = {
           ...obj,
@@ -39,14 +39,12 @@ export const removeWindowRef = (state: State, action: Action<Payload.RemoveWindo
 export const setWindowProps= (state: State, action: Action<Payload.SetWindowProps>) => {
   const { id, bounds, flags } = action.payload;
 
-  console.log(flags)
-
   return {
     ...state,
-    refs: {
-      ...state.refs,
+    instances: {
+      ...state.instances,
       [id]: {
-        ...state.refs[id],
+        ...state.instances[id],
         bounds,
         flags
       }
