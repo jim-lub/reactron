@@ -24,7 +24,7 @@ export const removeWindowInstance = (state: State, action: Action<Payload.Remove
 
   return {
     ...state,
-    instances: Object.entries(state.refs).reduce((obj, [id, values]) => {
+    instances: Object.entries(state.instances).reduce((obj, [id, values]) => {
       if (id !== target_id) {
         obj = {
           ...obj,
