@@ -1,8 +1,8 @@
 import React from 'react';
 
-import './css/index.scss';
-
 import { CreateWindowModule } from './components';
+
+import './css/index.scss';
 
 const DevTools = () => {
   return (

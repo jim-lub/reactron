@@ -10,7 +10,7 @@ const initialize = () => {
   createWindow({
     source: { id: 'initial' },
     payload: {
-      containerType: 'container:Example',
+      containerType: 'container:DevTools',
       width: 1200,
       height: 1000
     }
@@ -19,7 +19,7 @@ const initialize = () => {
 
 app.on('ready', () => {
   log.app('success', 'Application initialized.');
-  
+
   initialize();
 });
 
