@@ -23,13 +23,13 @@
     }
   },
   "scripts": {
-    "app:start": "webpack-dev-server --config config/webpack.config.renderer.dev.js",
-    "app:build": "webpack --config config/webpack.config.renderer.prod.js",
+    "renderer:start": "webpack-dev-server --config config/webpack.config.renderer.dev.js",
+    "renderer:build": "webpack --config config/webpack.config.renderer.prod.js",
     "main:start": "concurrently \"npm run-script main:build-dev\" \"cross-env NODE_ENV=dev nodemon --exec \"\"wait-on http://localhost:8080 && electron build/main.js\"\"",
     "main:build-dev": "webpack --config config/webpack.config.main.dev.js -w",
     "main:build": "webpack --config config/webpack.config.main.prod.js",
-    "start": "concurrently \"npm run-script app:start\" \"npm run-script main:start\"",
-    "build": "concurrently \"npm run-script app:build\" \"npm run-script main:build\"",
+    "start": "concurrently \"npm run-script renderer:start\" \"npm run-script main:start\"",
+    "build": "concurrently \"npm run-script renderer:build\" \"npm run-script main:build\"",
     "dist": "npm run-script build && electron-builder"
   },
   "dependencies": {
