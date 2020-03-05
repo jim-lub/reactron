@@ -12,7 +12,23 @@ const Example = () => {
 
   return (
     <>
-      <div className="section">
+      <section>
+        <p>
+          <ul className="list">
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+            <li>Item 5</li>
+            <li>Item 6</li>
+            <li>Item 7</li>
+          </ul>
+        </p>
+      </section>
+
+      <section>-</section>
+
+      <section>
         <div className="notification">
           <p>
             Buried deep in the snow, he hoped his <strong>batteries</strong> were fresh in his <mark>avalanche</mark> beacon.
@@ -36,10 +52,21 @@ const Example = () => {
             Your girlfriend bought your <mark>favorite cookie crisp cereal</mark> but forgot to get milk.
           </p>
         </div><br/>
-      </div>
+      </section>
 
-      <div className="section">
-        <div className="flex-container">
+      <section>
+        <div className="container">
+          <select>
+            <option>Option 1</option>
+          </select>
+          <input type="text" value="640" />
+          <input type="text" value="480" />
+          <button className="primary">Create</button>
+          <button>Clear</button>
+        </div>
+      </section>
+
+      <section className="alt flex nowrap row">
           <select>
             <option>Option 1</option>
           </select>
@@ -47,43 +74,42 @@ const Example = () => {
           <input type="text" value="480" />
           <button className="blue">Create</button>
           <button>Clear</button>
-        </div>
-      </div>
+      </section>
 
-      <div className="section">
-        <div className="container alt">
-          <select>
-            <option>Option 1</option>
-          </select>
-          <input type="text" value="640" />
-          <input type="text" value="480" />
-          <button className="blue">Create</button>
-          <button>Clear</button>
-        </div>
-      </div>
-
-      <div className="section">
+      <section>
         <h3>Continuous</h3>
         <p>
           { placeholderParagraph() }
         </p>
-      </div>
+      </section>
 
-      <div className="section alt">
+      <section className="alt">
         <h3>Reluctance</h3>
         <p>
           { placeholderParagraph() }
         </p>
-      </div>
 
-      <div className="section">
+        <p>
+          <ul className="list">
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+            <li>Item 5</li>
+            <li>Item 6</li>
+            <li>Item 7</li>
+          </ul>
+        </p>
+      </section>
+
+      <section>
         <h3>Werther</h3>
         <div className="container alt no-margin">
           <p>
             { placeholderParagraph() }
           </p>
         </div>
-      </div>
+      </section>
     </>
   )
 }

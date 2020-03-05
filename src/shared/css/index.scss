@@ -1,10 +1,11 @@
 @import './colors.scss';
-@import './defaults.scss';
-@import './blocks.scss';
-@import './buttons.scss';
-@import './forms.scss';
-@import './notifications.scss';
 
-.clearfix {
-  overflow: hidden;
-}
+@import './global/defaults.scss';
+
+@import './global/sections.scss';
+@import './global/containers.scss';
+
+@import './global/buttons.scss';
+@import './global/forms.scss';
+@import './global/lists.scss';
+@import './global/notifications.scss';

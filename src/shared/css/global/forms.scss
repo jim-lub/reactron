@@ -1,0 +1,29 @@
+@mixin input() {
+  flex: 1 1 auto;
+  width: 100%;
+  margin: 1px;
+  padding: 7px 10px;
+  background-color: $input__bgcolor;
+  border: solid 1px $input__border-color;
+  border-radius: 3px;
+  outline: 0;
+  line-height: 1;
+  font-size: 11px;
+  transition: border-color 0.15s;
+
+  &:hover {
+    border-color: $input__border-color_hover;
+  }
+
+  &:focus {
+    border-color: $input__border-color_focus;
+  }
+}
+
+input {
+  @include input();
+}
+
+select {
+  @include input();
+}

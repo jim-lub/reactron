@@ -1,0 +1,92 @@
+@mixin btn($bgcolor, $border-color, $border-color_focus, $border-color_hover, $color) {
+  background-color: $bgcolor;
+  border: solid 1px $border-color;
+  color: $color;
+
+  &:hover {
+    background-color: darken($bgcolor, 8%);
+    border-color: darken($bgcolor, 8%);
+    border-color: $border-color_hover;
+  }
+
+  &:focus {
+    border-color: $border-color_focus;
+  }
+
+  &:active {
+    background-color: darken($bgcolor, 16%);
+  }
+
+  &:disabled {
+    background-color: lighten($btn__bgcolor, 5%);
+    color: lighten($btn__color, 30%);
+  }
+}
+
+button {
+  @include btn(
+    $btn__bgcolor,
+    $btn__border-color,
+    $btn__border-color_focus,
+    $btn__border-color_hover,
+    $btn__color
+  );
+
+  flex: 1 1 auto;
+  width: 100%;
+  margin: 1px;
+  padding: 10px 15px;
+  border-radius: 3px;
+  outline: 0;
+  line-height: 1;
+  font-size: 11px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color .2s linear, border-color .2s linear;
+}
+
+:global {
+
+  button {
+    &.primary {
+      @include btn(
+        $btn-primary__bgcolor,
+        $btn-primary__border-color,
+        $btn-primary__border-color_focus,
+        $btn-primary__border-color_hover,
+        $btn-primary__color
+      );
+    }
+
+    &.blue {
+      @include btn(
+        $btn-blue__bgcolor,
+        $btn-blue__border-color,
+        $btn-blue__border-color_focus,
+        $btn-blue__border-color_hover,
+        $btn-blue__color
+      );
+    }
+
+    &.green {
+      @include btn(
+        $btn-green__bgcolor,
+        $btn-green__border-color,
+        $btn-green__border-color_focus,
+        $btn-green__border-color_hover,
+        $btn-green__color
+      );
+    }
+
+    &.red {
+      @include btn(
+        $btn-red__bgcolor,
+        $btn-red__border-color,
+        $btn-red__border-color_focus,
+        $btn-red__border-color_hover,
+        $btn-red__color
+      );
+    }
+  }
+
+}

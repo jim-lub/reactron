@@ -1,0 +1,46 @@
+:global {
+  .container {
+    margin: 10px;
+    padding: 10px;
+    background-color: $white;
+    border: solid 1px $grey-300;
+    border-radius: 3px;
+
+    &.alt {
+      background-color: $grey-100;
+    }
+
+    &.no-margin {
+      margin: 0px;
+    }
+
+    &.flex {
+      display: flex;
+      flex-flow: row nowrap;
+
+      &.wrap {
+        flex-wrap: wrap;
+      }
+
+      &.nowrap {
+        flex-wrap: nowrap;
+      }
+
+      &.row {
+        flex-direction: row;
+      }
+
+      &.row-reverse {
+        flex-direction: row;
+      }
+
+      &.column {
+        flex-direction: column;
+      }
+
+      &.column-reverse {
+        flex-direction: column;
+      }
+    }
+  }
+}
