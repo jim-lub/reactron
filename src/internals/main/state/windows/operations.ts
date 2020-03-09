@@ -42,14 +42,12 @@ export const createWindow = ({ payload: { containerType, width, height } }: Prop
     ...getWindowProps(windowRef)
   }) );
 
-  const setWindowProps = () => {
-    if (!windowRef) return;
+  const dispatchWindowProps = () => dispatch( actions.setWindowProps({ id, ...getWindowProps(windowRef) }) );
 
-    const debouncedFunction = debounce(
-      () => dispatch( actions.setWindowProps({ id, ...getWindowProps(windowRef) }) ),
-      100
-    );
-  }
+  const setWindowProps = debounce(
+    dispatchWindowProps,
+    100
+  );
 
   windowRef.on('blur', () => setWindowProps());
   windowRef.on('focus', () => setWindowProps());
