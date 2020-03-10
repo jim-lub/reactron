@@ -3,6 +3,8 @@ import Reactron from 'reactron';
 
 import Containers, { ContainerTypes } from 'containers';
 
+import { ReactComponent as AddIcon } from '../../assets/icons/unmaximize.svg';
+
 import styles from './create-window-module.module.scss';
 
 const CreateWindowModule = () => {
@@ -34,54 +36,47 @@ const CreateWindowModule = () => {
   });
 
   return (
-    <section className="section">
-      <div className="box">
-        <div className="level-left">
-          <div className="select">
-            <select
-              onChange={(e) => setSelection(e.target.value)}
-              value={selection}
-            >
-              {
-                renderSelectOptions()
-              }
-            </select>
-          </div>
+    <>
+      <section>
+      </section>
 
-          <p className="control">
-            <input
-              className="input"
-              value={windowWidth}
-              onChange={(e) => setWindowWidth(e.target.value)}
-            />
-          </p>
+      <section className="alt flex">
+        <select
+          onChange={(e) => setSelection(e.target.value)}
+          value={selection}
+        >
+          {
+            renderSelectOptions()
+          }
+        </select>
 
-          <p className="control">
-            <input
-              className="input"
-              value={windowHeight}
-              onChange={(e) => setWindowHeight(e.target.value)}
-            />
-          </p>
-        </div>
+        <input
+          className="input"
+          style={{ maxWidth: 70, textAlign: 'center' }}
+          value={windowWidth}
+          onChange={(e) => setWindowWidth(e.target.value)}
+        />
 
-        <div className="level-right">
-          <button
-            type="button"
-            className="blue"
-            onClick={handleSubmit}
-          >
-            Create
-          </button>
-          <button
-            type="button"
-            onClick={handleSubmit}
-          >
-            Create
-          </button>
-        </div>
-      </div>
-    </section>
+        <input
+          className="input"
+          style={{ maxWidth: 70, textAlign: 'center' }}
+          value={windowHeight}
+          onChange={(e) => setWindowHeight(e.target.value)}
+        />
+
+        <div className="divider vertical"></div>
+
+        <button
+          type="button"
+          className="btn-icon-text"
+          style={{ maxWidth: 150 }}
+          onClick={handleSubmit}
+        >
+          <span className="icon-wrap"><AddIcon className="icon" /></span>
+          <span className="text-wrap">Create</span>
+        </button>
+      </section>
+    </>
   )
 }
 
