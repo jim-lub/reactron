@@ -13,17 +13,15 @@ const Example = () => {
   return (
     <>
       <section>
-        <p>
-          <ul className="list">
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
-            <li>Item 5</li>
-            <li>Item 6</li>
-            <li>Item 7</li>
-          </ul>
-        </p>
+        <ul className="list">
+          <li>Item 1</li>
+          <li>Item 2</li>
+          <li>Item 3</li>
+          <li>Item 4</li>
+          <li>Item 5</li>
+          <li>Item 6</li>
+          <li>Item 7</li>
+        </ul>
       </section>
 
       <section>-</section>
@@ -72,7 +70,7 @@ const Example = () => {
           </select>
           <input type="text" value="640" />
           <input type="text" value="480" />
-          <button className="blue">Create</button>
+          <button className="primary">Create</button>
           <button>Clear</button>
       </section>
 
@@ -87,19 +85,17 @@ const Example = () => {
         <h3>Reluctance</h3>
         <p>
           { placeholderParagraph() }
-        </p>
+        </p><br />
 
-        <p>
-          <ul className="list">
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
-            <li>Item 5</li>
-            <li>Item 6</li>
-            <li>Item 7</li>
-          </ul>
-        </p>
+        <ul className="list alt">
+          <li>Item 1</li>
+          <li>Item 2</li>
+          <li>Item 3</li>
+          <li>Item 4</li>
+          <li>Item 5</li>
+          <li>Item 6</li>
+          <li>Item 7</li>
+        </ul>
       </section>
 
       <section>

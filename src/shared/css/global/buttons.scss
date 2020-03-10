@@ -10,6 +10,7 @@
   }
 
   &:focus {
+    background-color: darken($bgcolor, 8%);
     border-color: $border-color_focus;
   }
 
@@ -87,6 +88,35 @@ button {
         $btn-red__color
       );
     }
-  }
 
+    &.btn-icon-text {
+      display: flex;
+      flex-flow: row nowrap;
+      padding: 0 0;
+
+      fill: $grey-600;
+
+      & > .icon-wrap {
+        display: flex;
+        flex: 1 1 auto;
+        height: auto;
+        background-color: $btn__bgcolor_secondary;
+        border-radius: 3px;
+        fill: inherit;
+
+        & > .icon {
+          width: 12px;
+          height: 12px;
+          fill: inherit;
+        }
+      }
+
+      & > .text-wrap {
+        flex: 1 1 auto;
+        font-size: inherit;
+        text-align: left;
+      }
+    }
+
+  }
 }

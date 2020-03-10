@@ -15,10 +15,23 @@ const DevTools = () => {
   }, [windowInstances]);
 
   return (
-    <div>
-      <h1>DevTools Container</h1>
+    <>
       <CreateWindowModule />
-    </div>
+
+      <section>
+        <ol className="list">
+          {
+            Object.entries(windowInstances).map(([id, props]) => {
+              return (
+                <li key={id}>
+                  { id }
+                </li>
+              )
+            })
+          }
+        </ol>
+      </section>
+    </>
   )
 }
 
