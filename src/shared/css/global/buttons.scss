@@ -92,28 +92,27 @@ button {
     &.btn-icon-text {
       display: flex;
       flex-flow: row nowrap;
-      padding: 0 0;
+      justify-content: center;
 
-      fill: $grey-600;
+      fill: $grey-700;
 
-      & > .icon-wrap {
-        display: flex;
+      & span:nth-child(1) {
         flex: 1 1 auto;
-        height: auto;
-        background-color: $btn__bgcolor_secondary;
-        border-radius: 3px;
         fill: inherit;
 
         & > .icon {
+          float: right;
+          margin-right: 6px;
           width: 12px;
           height: 12px;
           fill: inherit;
         }
       }
 
-      & > .text-wrap {
+      & span:nth-child(2) {
         flex: 1 1 auto;
         font-size: inherit;
+        line-height: 1.2;
         text-align: left;
       }
     }

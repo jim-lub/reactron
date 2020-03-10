@@ -50,16 +50,19 @@ h5 {
 }
 
 strong {
+  font-size: inherit;
   font-weight: bold;
   color: inherit;
 }
 
 em {
+  font-size: inherit;
   font-style: italic;
   color: inherit;
 }
 
 mark {
+  font-size: inherit;
   background-color: $grey-300;
 }
 

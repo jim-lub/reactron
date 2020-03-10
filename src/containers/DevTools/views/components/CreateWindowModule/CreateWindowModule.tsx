@@ -3,10 +3,6 @@ import Reactron from 'reactron';
 
 import Containers, { ContainerTypes } from 'containers';
 
-import { ReactComponent as AddIcon } from '../../assets/icons/unmaximize.svg';
-
-import styles from './create-window-module.module.scss';
-
 const CreateWindowModule = () => {
   const [selection, setSelection] = useState( Object.values(ContainerTypes)[0] );
   const [windowWidth, setWindowWidth] = useState('640');
@@ -68,12 +64,11 @@ const CreateWindowModule = () => {
 
         <button
           type="button"
-          className="btn-icon-text"
+          className="primary"
           style={{ maxWidth: 150 }}
           onClick={handleSubmit}
         >
-          <span className="icon-wrap"><AddIcon className="icon" /></span>
-          <span className="text-wrap">Create</span>
+          Create
         </button>
       </section>
     </>

@@ -10,6 +10,7 @@ ol {
   ul, ol {
     &.list {
       border: solid 1px $grey-350;
+      border-radius: 3px;
       list-style: none;
 
       & > li {
