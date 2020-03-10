@@ -1,25 +1,4 @@
-interface Bounds {
-  x: number,
-  y: number,
-  width: number,
-  height: number
-}
-
-interface Flags {
-  isFocused: boolean,
-  isVisible: boolean,
-  isModal: boolean,
-  isMaximized: boolean,
-  isMinimized: boolean,
-  isFullScreen: boolean,
-  isNormal: boolean,
-
-  isResizable: boolean,
-  isMovable: boolean,
-  isMaximizable: boolean,
-  isMinimizable: boolean,
-  isClosable: boolean
-}
+import { Window } from '~types/window.types';
 
 export namespace Payload {
 
@@ -28,8 +7,8 @@ export namespace Payload {
     containerType: string,
     alias: string,
     ref: Electron.BrowserWindow,
-    bounds: Bounds,
-    flags: Flags
+    bounds: Window.Bounds,
+    flags: Window.Flags
   }
 
   export interface RemoveWindowInstance {
@@ -38,8 +17,8 @@ export namespace Payload {
 
   export interface SetWindowProps {
     id: string,
-    bounds: Bounds,
-    flags: Flags
+    bounds: Window.Bounds,
+    flags: Window.Flags
   }
 
 }

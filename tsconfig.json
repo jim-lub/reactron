@@ -13,8 +13,7 @@
       "@main/*": ["internals/main/*"],
       "@renderer/*": ["internals/renderer/*"],
       "@state/*": ["internals/state/*"],
-
-      "~types/*": ["shared/types/*"],
+      "~types/*": ["internals/types/*"],
 
       "shared/*": ["shared/*"],
       "containers/*": ["containers/*"]
