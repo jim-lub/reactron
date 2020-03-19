@@ -1,0 +1,16 @@
+:global {
+  .accordion {
+    &.header {
+      padding: 2px 2px;
+      border-bottom: solid 1px $grey-300;
+
+      &.open {
+        border-bottom: none;
+      }
+
+      &.closed {
+
+      }
+    }
+  }
+}

@@ -8,7 +8,11 @@ const channels = {
     open              : "window:open",
     close             : "window:close",
     minimize          : "window:minimize",
+    restore           : "window:restore",
     maximize          : "window:maximize",
+    unmaximize        : "window:unmaximize",
+    focus             : "window:focus",
+    reload            : "window:reload"
   },
 
   store: {
