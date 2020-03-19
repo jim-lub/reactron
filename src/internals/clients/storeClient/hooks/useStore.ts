@@ -3,10 +3,10 @@ import { v4 as uuid } from 'uuid';
 
 import * as storeClient from '../';
 
-const useStore = (pathToProperty?: string) => {
+const useStore = <T>(pathToProperty?: string, initialValue?: any) => {
   // Generates an unique channel id for this listener instance
   const [listenerChannel] = useState(`@store:listen:${ uuid() }`);
-  const [value, setValue]: any = useState({});
+  const [value, setValue]: [T, any] = useState(initialValue);
 
   const callback = (_event: any, result: any) => {
     if (result != value) {

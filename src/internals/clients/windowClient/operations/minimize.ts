@@ -9,10 +9,10 @@ interface Props {
   }
 }
 
-const close = ({ target }: Props) => {
+const minimize = ({ target }: Props) => {
   const { id: windowId } = windowClient.getStaticWindowProperties();
 
-  ipcRenderer.send(channels.window.close, {
+  ipcRenderer.send(channels.window.minimize, {
     source: {
       id: windowId
     },
@@ -20,4 +20,4 @@ const close = ({ target }: Props) => {
   });
 }
 
-export default close;
+export default minimize;

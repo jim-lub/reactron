@@ -12,8 +12,7 @@ module.exports = {
       ['@main']: path.resolve(__dirname, "..", "src", "internals", "main"),
       ['@renderer']: path.resolve(__dirname, "..", "src", "internals", "renderer"),
       ['@state']: path.resolve(__dirname, "..", "src", "internals", "state"),
-
-      ['~types']: path.resolve(__dirname, "..", "src", "shared", "types"),
+      ['~types']: path.resolve(__dirname, "..", "src", "internals", "types"),
 
       ['shared']: path.resolve(__dirname, "..", "src", "shared"),
       ['containers']: path.resolve(__dirname, "..", "src", "containers")

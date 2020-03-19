@@ -4,8 +4,8 @@ import { debounce } from 'ts-debounce';
 
 import { dispatch, unsubscribe } from '@main/store';
 
-import * as actions from './actions';
-import * as utils from './utils';
+import * as actions from '../actions';
+import * as utils from '../utils';
 
 interface Props {
   source: {
@@ -18,7 +18,7 @@ interface Props {
   }
 }
 
-export const createWindow = ({ payload: { containerType, width, height } }: Props) => {
+const createWindow = ({ payload: { containerType, width, height } }: Props) => {
   const id = uuid();
 
   const windowRef = new BrowserWindow({
@@ -42,14 +42,16 @@ export const createWindow = ({ payload: { containerType, width, height } }: Prop
     ...getWindowProps(windowRef)
   }) );
 
-  const setWindowProps = () => {
-    if (!windowRef) return;
+  const dispatchWindowProps = () => {
+    if (windowRef.isDestroyed()) return;
 
-    const debouncedFunction = debounce(
-      () => dispatch( actions.setWindowProps({ id, ...getWindowProps(windowRef) }) ),
-      100
-    );
-  }
+    dispatch( actions.setWindowProps({ id, ...getWindowProps(windowRef) }) );
+  };
+
+  const setWindowProps = debounce(
+    dispatchWindowProps,
+    100
+  );
 
   windowRef.on('blur', () => setWindowProps());
   windowRef.on('focus', () => setWindowProps());
@@ -73,25 +75,29 @@ export const createWindow = ({ payload: { containerType, width, height } }: Prop
   });
 }
 
-const getWindowProps = (windowRef: Electron.BrowserWindow) => ({
-  bounds: {
-    ...windowRef.getBounds(),
-    minimumSize: windowRef.getMinimumSize(),
-    maximumSize: windowRef.getMaximumSize()
-  },
-  flags: {
-    isFocused: windowRef.isFocused(),
-    isVisible: windowRef.isVisible(),
-    isModal: windowRef.isModal(),
-    isMaximized: windowRef.isMaximized(),
-    isMinimized: windowRef.isMinimized(),
-    isFullScreen: windowRef.isFullScreen(),
-    isNormal: windowRef.isNormal(),
+const getWindowProps = (windowRef: Electron.BrowserWindow) => {
+  return ({
+   bounds: {
+     ...windowRef.getBounds(),
+     minimumSize: windowRef.getMinimumSize(),
+     maximumSize: windowRef.getMaximumSize()
+   },
+   flags: {
+     isFocused: windowRef.isFocused(),
+     isVisible: windowRef.isVisible(),
+     isModal: windowRef.isModal(),
+     isMaximized: windowRef.isMaximized(),
+     isMinimized: windowRef.isMinimized(),
+     isFullScreen: windowRef.isFullScreen(),
+     isNormal: windowRef.isNormal(),
 
-    isResizable: windowRef.resizable,
-    isMovable: windowRef.movable,
-    isMaximizable: windowRef.maximizable,
-    isMinimizable: windowRef.minimizable,
-    isClosable: windowRef.closable
-  }
-});
+     isResizable: windowRef.resizable,
+     isMovable: windowRef.movable,
+     isMaximizable: windowRef.maximizable,
+     isMinimizable: windowRef.minimizable,
+     isClosable: windowRef.closable
+   }
+ })
+};
+
+export default createWindow;

@@ -3,8 +3,6 @@ import Reactron from 'reactron';
 
 import Containers, { ContainerTypes } from 'containers';
 
-import styles from './create-window-module.module.scss';
-
 const CreateWindowModule = () => {
   const [selection, setSelection] = useState( Object.values(ContainerTypes)[0] );
   const [windowWidth, setWindowWidth] = useState('640');
@@ -34,36 +32,46 @@ const CreateWindowModule = () => {
   });
 
   return (
-    <div className={styles.wrapper}>
-      <select
-        className={styles.select}
-        onChange={(e) => setSelection(e.target.value)}
-        value={selection}
-      >
-        {
-          renderSelectOptions()
-        }
-      </select>
+    <>
+      <section>
+      </section>
 
-      <input
-        className={styles.input}
-        value={windowWidth}
-        onChange={(e) => setWindowWidth(e.target.value)}
-      />
+      <section className="alt flex">
+        <select
+          onChange={(e) => setSelection(e.target.value)}
+          value={selection}
+        >
+          {
+            renderSelectOptions()
+          }
+        </select>
 
-      <input
-        className={styles.input}
-        value={windowHeight}
-        onChange={(e) => setWindowHeight(e.target.value)}
-      />
+        <input
+          className="input"
+          style={{ maxWidth: 70, textAlign: 'center' }}
+          value={windowWidth}
+          onChange={(e) => setWindowWidth(e.target.value)}
+        />
 
-      <button
-        className={styles.button}
-        onClick={handleSubmit}
-      >
-        Open
-      </button>
-    </div>
+        <input
+          className="input"
+          style={{ maxWidth: 70, textAlign: 'center' }}
+          value={windowHeight}
+          onChange={(e) => setWindowHeight(e.target.value)}
+        />
+
+        <div className="divider vertical"></div>
+
+        <button
+          type="button"
+          className="primary"
+          style={{ maxWidth: 150 }}
+          onClick={handleSubmit}
+        >
+          Create
+        </button>
+      </section>
+    </>
   )
 }
 

@@ -1,0 +1,42 @@
+section {
+  padding: 10px;
+  background-color: $white;
+  border-bottom: solid 1px $grey-350;
+}
+
+:global {
+  section {
+    &.alt {
+      background-color: $grey-100;
+    }
+
+    &.flex {
+      display: flex;
+      flex-flow: row nowrap;
+
+      &.wrap {
+        flex-wrap: wrap;
+      }
+
+      &.nowrap {
+        flex-wrap: nowrap;
+      }
+
+      &.row {
+        flex-direction: row;
+      }
+
+      &.row-reverse {
+        flex-direction: row;
+      }
+
+      &.column {
+        flex-direction: column;
+      }
+
+      &.column-reverse {
+        flex-direction: column;
+      }
+    }
+  }
+}

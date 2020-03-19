@@ -1,0 +1,43 @@
+:global {
+  .notification {
+    padding: 5px 10px;
+    background-color: #fffaf3;
+    border: solid 1px #c9ba9b;
+    border-radius: 5px;
+    color: #573a08;
+
+    & > p > mark {
+      background-color: #fde3be;
+    }
+
+    &.info {
+      background-color: #f8ffff;
+      border-color: #a9d5de;
+      color: #276f86;
+
+      & > p > mark {
+        background-color: #cbf4f4;
+      }
+    }
+
+    &.success {
+      background-color: #fcfff5;
+      border-color: #a3c293;
+      color: #1a531b;
+
+      & > p > mark {
+        background-color: #dff5ab;
+      }
+    }
+
+    &.error {
+      background-color: #fff6f6;
+      border-color: #e0b4b4;
+      color: #912d2b;
+
+      & > p > mark {
+        background-color: #f8caca;
+      }
+    }
+  }
+}

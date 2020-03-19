@@ -1,0 +1,32 @@
+ul {
+  list-style-position: inside;
+}
+
+ol {
+  list-style-position: inside;
+}
+
+:global {
+  ul, ol {
+    &.list {
+      border: solid 1px $grey-350;
+      border-radius: 3px;
+      list-style: none;
+
+      & > li {
+        margin: 1px;
+        padding: 3px 6px;
+        background-color: $grey-050;
+        border-bottom: solid 1px $grey-300;
+      }
+
+      &.alt > li {
+        background-color: $white;
+      }
+
+      & > li:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+}

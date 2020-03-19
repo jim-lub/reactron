@@ -23,3 +23,10 @@ export const createWindow = operations.createWindow;
 
 // setup event listeners for clients
 ipcMain.on(channels.window.open, (_event, props: any) => operations.createWindow(props));
+ipcMain.on(channels.window.close, (_event, props: any) => operations.closeWindow(props));
+ipcMain.on(channels.window.focus, (_event, props: any) => operations.focusWindow(props));
+ipcMain.on(channels.window.maximize, (_event, props: any) => operations.maximizeWindow(props));
+ipcMain.on(channels.window.minimize, (_event, props: any) => operations.minimizeWindow(props));
+ipcMain.on(channels.window.reload, (_event, props: any) => operations.reloadWindow(props));
+ipcMain.on(channels.window.restore, (_event, props: any) => operations.restoreWindow(props));
+ipcMain.on(channels.window.unmaximize, (_event, props: any) => operations.unmaximizeWindow(props));

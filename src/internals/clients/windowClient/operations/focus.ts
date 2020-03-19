@@ -12,7 +12,7 @@ interface Props {
 const focus = ({ target }: Props) => {
   const { id: windowId } = windowClient.getStaticWindowProperties();
 
-  ipcRenderer.send(channels.window.open, {
+  ipcRenderer.send(channels.window.focus, {
     source: {
       id: windowId
     },
